@@ -1,0 +1,1281 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CivicReports | Convierte evidencia ciudadana en apoyo real</title>
+  <meta name="description" content="CivicReports transforma denuncias ciudadanas en reportes con foto, GPS, firmas digitales y seguimiento institucional. Nace en Juigalpa para escalar a más ciudades de Nicaragua.">
+  <meta name="theme-color" content="#0d3a43">
+  <meta property="og:title" content="CivicReports | Acción cívica respaldada por evidencia">
+  <meta property="og:description" content="Denuncia con evidencia, reúne apoyo y conecta con instituciones desde una sola plataforma.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_NI">
+  <meta property="og:image" content="https://placehold.co/1200x630/0d3a43/f4efe3?text=CivicReports">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CivicReports">
+  <meta name="twitter:description" content="Una landing para impulsar reportes ciudadanos con evidencia, firmas digitales y seguimiento institucional.">
+  <link rel="icon" href="./assets/civicreports-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            civic: {
+              deep: "#071d22",
+              tide: "#0d3a43",
+              ink: "#123f48",
+              mist: "#d7ece9",
+              sand: "#f4efe3",
+              coral: "#eb7a58",
+              amber: "#f2b45b",
+              slate: "#50676c"
+            }
+          },
+          fontFamily: {
+            display: ["Sora", "sans-serif"],
+            body: ["Source Sans 3", "sans-serif"]
+          },
+          boxShadow: {
+            float: "0 30px 80px rgba(4, 15, 18, 0.22)",
+            glow: "0 0 0 1px rgba(255,255,255,0.08), 0 28px 60px rgba(7, 29, 34, 0.32)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --header-height: 84px;
+      --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+      --section-max: 1160px;
+    }
+
+    .bg-civic-deep { background-color: #071d22; }
+    .bg-civic-tide { background-color: #0d3a43; }
+    .bg-civic-ink { background-color: #123f48; }
+    .bg-civic-sand { background-color: #f4efe3; }
+    .bg-civic-amber { background-color: #f2b45b; }
+    .bg-civic-mist { background-color: #d7ece9; }
+    .text-civic-deep { color: #071d22; }
+    .text-civic-slate { color: #39535a; }
+    .text-civic-coral { color: #eb7a58; }
+    .text-civic-amber { color: #f2b45b; }
+    .text-civic-mist { color: #d7ece9; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Source Sans 3", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(13, 58, 67, 0.2), transparent 26%),
+        radial-gradient(circle at 78% 10%, rgba(242, 180, 91, 0.12), transparent 24%),
+        linear-gradient(180deg, #f4efe3 0%, #f6f3ec 55%, #edf3f3 100%);
+      color: #102326;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(11, 46, 52, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 46, 52, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .section-shell { max-width: var(--section-max); }
+    .section-anchor { scroll-margin-top: calc(var(--header-height) + 28px); }
+    .balanced { text-wrap: balance; }
+
+    .soft-panel {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(13, 58, 67, 0.14);
+      box-shadow: 0 18px 44px rgba(11, 36, 42, 0.08);
+    }
+
+    .dark-surface {
+      background: linear-gradient(180deg, rgba(14, 52, 60, 0.96), rgba(9, 34, 39, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 80;
+      transform: translateY(-140%);
+      border-radius: 999px;
+      background: #f2b45b;
+      color: #071d22;
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(242, 180, 91, 0.25);
+    }
+
+    .urban-mesh {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 72% 28%, rgba(242, 180, 91, 0.28), transparent 18%),
+        radial-gradient(circle at 35% 62%, rgba(235, 122, 88, 0.14), transparent 24%),
+        linear-gradient(115deg, rgba(4, 19, 22, 0.88), rgba(13, 58, 67, 0.8)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.08) 1px, transparent 1px, transparent 94px),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 94px);
+      overflow: hidden;
+    }
+
+    .urban-mesh::before,
+    .urban-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(10px);
+      opacity: 0.7;
+    }
+
+    .urban-mesh::before {
+      width: 28rem;
+      height: 28rem;
+      right: -6rem;
+      top: -9rem;
+      background: rgba(215, 236, 233, 0.18);
+    }
+
+    .urban-mesh::after {
+      width: 24rem;
+      height: 24rem;
+      left: -8rem;
+      bottom: -8rem;
+      background: rgba(235, 122, 88, 0.16);
+    }
+
+    [data-header] {
+      transition:
+        transform 0.45s var(--ease-standard),
+        background-color 0.35s var(--ease-standard),
+        border-color 0.35s var(--ease-standard),
+        box-shadow 0.35s var(--ease-standard);
+    }
+
+    .header-brand-mark {
+      color: #d7b48e;
+      transition: color 0.35s var(--ease-standard), transform 0.35s var(--ease-standard);
+    }
+
+    .header-brand-mark:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-mark-image {
+      display: block;
+      width: 3rem;
+      height: 3.55rem;
+      filter: drop-shadow(0 6px 16px rgba(44, 21, 12, 0.12));
+    }
+
+    .header-brand-name,
+    .header-nav-link {
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 0.35s var(--ease-standard), opacity 0.35s var(--ease-standard);
+    }
+
+    .header-nav-link:hover { color: #ffffff; }
+
+    .header-cta {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      transition:
+        background-color 0.35s var(--ease-standard),
+        border-color 0.35s var(--ease-standard),
+        color 0.35s var(--ease-standard);
+    }
+
+    .header-cta:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    [data-header].header-scrolled {
+      background: rgba(244, 239, 227, 0.72);
+      backdrop-filter: blur(18px);
+      border-bottom-color: rgba(7, 29, 34, 0.1);
+      box-shadow: 0 14px 40px rgba(7, 29, 34, 0.08);
+    }
+
+    [data-header].header-scrolled .header-brand-mark {
+      color: #8d6746;
+    }
+
+    [data-header].header-scrolled .header-brand-name,
+    [data-header].header-scrolled .header-nav-link {
+      color: #102326;
+    }
+
+    [data-header].header-scrolled .header-nav-link:hover {
+      color: #071d22;
+    }
+
+    [data-header].header-scrolled .header-cta {
+      border-color: rgba(7, 29, 34, 0.12);
+      background: #071d22;
+      color: #ffffff;
+    }
+
+    [data-header].header-scrolled .header-cta:hover {
+      background: #123f48;
+    }
+
+    [data-header].header-hidden { transform: translateY(-100%); }
+
+    .hero-sequence {
+      opacity: 0;
+      transform: translateY(26px);
+      animation: rise-in 0.8s var(--ease-standard) forwards;
+    }
+
+    .device-shell { position: relative; isolation: isolate; }
+    .device-shell::before {
+      content: "";
+      position: absolute;
+      inset: 8% -10% -8%;
+      background:
+        radial-gradient(circle at 60% 30%, rgba(242, 180, 91, 0.28), transparent 32%),
+        radial-gradient(circle at 30% 70%, rgba(235, 122, 88, 0.24), transparent 24%);
+      filter: blur(22px);
+      z-index: -1;
+    }
+
+    .hero-copy-plane {
+      position: absolute;
+      inset: -1.25rem 0.5rem -1.25rem -1.25rem;
+      border-radius: 2.6rem;
+      background:
+        linear-gradient(90deg, rgba(7, 29, 34, 0.92) 0%, rgba(7, 29, 34, 0.82) 58%, rgba(7, 29, 34, 0.32) 100%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .section-kicker {
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .phone-map {
+      background:
+        radial-gradient(circle at 32% 26%, rgba(235, 122, 88, 0.32), transparent 8%),
+        radial-gradient(circle at 78% 65%, rgba(242, 180, 91, 0.22), transparent 11%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(224, 237, 235, 0.96)),
+        repeating-linear-gradient(90deg, rgba(19, 63, 72, 0.12) 0, rgba(19, 63, 72, 0.12) 1px, transparent 1px, transparent 44px),
+        repeating-linear-gradient(0deg, rgba(19, 63, 72, 0.12) 0, rgba(19, 63, 72, 0.12) 1px, transparent 1px, transparent 44px);
+      position: relative;
+    }
+
+    .route-line {
+      position: absolute;
+      inset: 18% 16% 16% 14%;
+      border: 2px dashed rgba(13, 58, 67, 0.4);
+      border-radius: 28px 42px 32px 34px;
+      transform: rotate(8deg);
+    }
+
+    .report-dot {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #eb7a58;
+      box-shadow: 0 0 0 8px rgba(235, 122, 88, 0.16);
+    }
+
+    .report-dot.secondary {
+      background: #0d3a43;
+      box-shadow: 0 0 0 8px rgba(13, 58, 67, 0.12);
+    }
+
+    .media-panel {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .media-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .media-panel-dark::before {
+      background:
+        linear-gradient(140deg, rgba(7, 29, 34, 0.96) 4%, rgba(7, 29, 34, 0.84) 44%, rgba(7, 29, 34, 0.58) 100%);
+    }
+
+    .media-panel-light::before {
+      background:
+        linear-gradient(180deg, rgba(244, 239, 227, 0.24) 0%, rgba(244, 239, 227, 0.94) 84%);
+    }
+
+    .media-panel-sand::before {
+      background:
+        linear-gradient(180deg, rgba(244, 239, 227, 0.34) 0%, rgba(244, 239, 227, 0.9) 52%, rgba(244, 239, 227, 0.98) 100%);
+    }
+
+    .media-motion {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08) translateY(24px);
+      filter: saturate(0.82) contrast(0.95) brightness(0.78);
+      transition:
+        transform 1.15s var(--ease-standard),
+        filter 1.15s var(--ease-standard);
+    }
+
+    .media-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .media-panel-dark .media-content h2,
+    .media-panel-dark .media-content h3,
+    .media-panel-dark .media-content p,
+    .media-panel-dark .media-content span {
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    .media-label {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(7, 29, 34, 0.22);
+      color: #ffffff;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .media-glint::after {
+      content: "";
+      position: absolute;
+      top: -12%;
+      bottom: -12%;
+      left: -36%;
+      z-index: 2;
+      width: 42%;
+      transform: skewX(-22deg) translateX(-180%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      transition: transform 1.2s var(--ease-standard);
+    }
+
+    .photo-strip {
+      position: relative;
+      height: var(--photo-strip-height, 12rem);
+      overflow: hidden;
+      border-bottom: 1px solid rgba(13, 58, 67, 0.08);
+      background: #0d3a43;
+    }
+
+    .photo-strip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 29, 34, 0.12), rgba(7, 29, 34, 0.54));
+      z-index: 1;
+    }
+
+    .story-metric {
+      border-radius: 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+    }
+
+    .media-note {
+      width: fit-content;
+      max-width: 32rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(7, 29, 34, 0.56);
+      padding: 0.9rem 1rem;
+      color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 30px rgba(3, 11, 13, 0.2);
+    }
+
+    .float-card {
+      transition:
+        transform 0.45s var(--ease-standard),
+        box-shadow 0.45s var(--ease-standard),
+        border-color 0.45s var(--ease-standard);
+    }
+
+    .float-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 70px rgba(11, 36, 42, 0.14);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(36px) scale(0.985);
+      filter: blur(10px);
+      transition:
+        opacity 0.8s var(--ease-standard),
+        transform 0.9s var(--ease-standard),
+        filter 0.9s var(--ease-standard);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    [data-reveal].is-visible .media-motion,
+    [data-reveal].is-visible.media-panel .media-motion {
+      transform: scale(1) translateY(0);
+      filter: saturate(1) contrast(1) brightness(1);
+    }
+
+    [data-reveal].is-visible.media-glint::after {
+      transform: skewX(-22deg) translateX(290%);
+    }
+
+    .media-panel:hover .media-motion,
+    .photo-strip:hover .media-motion {
+      transform: scale(1.05) translateY(-4px);
+    }
+
+    .divider-list > * + * { border-top: 1px solid rgba(13, 58, 67, 0.12); }
+
+    details { border-top: 1px solid rgba(13, 58, 67, 0.12); padding-top: 1.1rem; }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-indicator { transform: rotate(45deg); }
+    .faq-indicator { transition: transform 0.25s ease; }
+    .interest-chip { transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+    .status-box[data-state="error"] { background: rgba(235, 122, 88, 0.12); border-color: rgba(235, 122, 88, 0.28); color: #8f3a20; }
+    .status-box[data-state="success"] { background: rgba(13, 58, 67, 0.1); border-color: rgba(13, 58, 67, 0.2); color: #0d3a43; }
+    .field-invalid { border-color: rgba(235, 122, 88, 0.9) !important; box-shadow: 0 0 0 4px rgba(235, 122, 88, 0.12); }
+    @keyframes rise-in { to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      [data-reveal], .hero-sequence, .media-motion { opacity: 1 !important; transform: none !important; filter: none !important; }
+      .media-glint::after { display: none !important; }
+    }
+
+    @media (max-width: 1023px) {
+      .hero-copy-plane {
+        inset: -1rem -1rem -1rem -1rem;
+        background:
+          linear-gradient(180deg, rgba(7, 29, 34, 0.88) 0%, rgba(7, 29, 34, 0.72) 70%, rgba(7, 29, 34, 0.16) 100%);
+      }
+
+      .photo-strip { height: 10.5rem; }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVFMERR57J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-CVFMERR57J');
+  </script>
+</head>
+<body class="font-body text-civic-deep antialiased">
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <header data-header class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+    <nav class="mx-auto flex h-[var(--header-height)] max-w-[1160px] items-center justify-between px-5 sm:px-6 lg:px-8" aria-label="Principal">
+      <a href="#top" class="flex items-center gap-3">
+        <span class="header-brand-mark inline-flex items-center justify-center" aria-hidden="true">
+          <img src="./assets/civicreports-mark.svg" alt="" class="brand-mark-image">
+        </span>
+        <span class="header-brand-name font-display text-lg font-semibold sm:text-xl">CivicReports</span>
+      </a>
+      <div class="hidden items-center gap-6 text-[0.98rem] font-medium lg:flex">
+        <a href="#problema" class="header-nav-link">Problema</a>
+        <a href="#flujo" class="header-nav-link">Cómo funciona</a>
+        <a href="#impacto" class="header-nav-link">Amplificación</a>
+        <a href="#faq" class="header-nav-link">FAQ</a>
+      </div>
+      <a href="#conversion" data-interest-target="Ciudadano" class="header-cta inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2">
+        Únete a la beta
+        <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="top" class="relative overflow-hidden bg-civic-deep text-white">
+      <div class="urban-mesh"></div>
+      <div class="relative mx-auto flex min-h-[100svh] max-w-[1240px] items-center px-5 pb-10 pt-24 sm:px-6 lg:px-8 lg:pb-12">
+        <div class="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(420px,0.94fr)] lg:gap-10">
+          <div class="relative max-w-[39rem] lg:max-w-[36rem]">
+            <div class="hero-copy-plane" aria-hidden="true"></div>
+            <p class="hero-sequence relative inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/12 px-4 py-2 text-sm font-semibold tracking-[0.18em] text-white/90 uppercase" style="animation-delay: 0.08s;">
+              <span class="inline-block h-2 w-2 rounded-full bg-civic-amber"></span>
+              Desde Juigalpa hacia más ciudades de Nicaragua
+            </p>
+            <h1 class="hero-sequence balanced relative mt-5 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.98] text-white sm:text-5xl lg:text-[3.75rem]" style="animation-delay: 0.18s;">
+              Convierte una denuncia aislada en evidencia visible, apoyo ciudadano y seguimiento institucional.
+            </h1>
+            <p class="hero-sequence relative mt-5 max-w-[34rem] text-[1.02rem] leading-8 text-white/86 sm:text-lg" style="animation-delay: 0.28s;">
+              CivicReports permite reportar problemas comunitarios con foto y GPS, reunir firmas digitales y amplificar la visibilidad de una causa sin depender solo del alcance local.
+            </p>
+
+            <div class="hero-sequence relative mt-7 flex flex-col gap-3 sm:flex-row" style="animation-delay: 0.38s;">
+              <a href="#conversion" data-interest-target="Ciudadano" class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-amber px-6 py-3.5 text-base font-semibold text-civic-deep transition hover:-translate-y-0.5 hover:bg-[#f4c373] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
+                Únete a la beta ciudadana
+                <i data-lucide="megaphone" class="h-5 w-5" aria-hidden="true"></i>
+              </a>
+              <a href="#conversion" data-interest-target="Institución" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/18 bg-white/12 px-6 py-3.5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
+                Solicita demo para institución
+                <i data-lucide="building-2" class="h-5 w-5" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="hero-sequence relative mt-6 flex flex-wrap gap-3 text-sm text-white/88" style="animation-delay: 0.48s;">
+              <div class="rounded-full border border-white/12 bg-[#103840] px-4 py-2.5">
+                <p class="font-semibold text-white">Foto + GPS desde el origen</p>
+              </div>
+              <div class="rounded-full border border-white/12 bg-[#103840] px-4 py-2.5">
+                <p class="font-semibold text-white">Firmas que vuelven visible el respaldo</p>
+              </div>
+              <div class="rounded-full border border-white/12 bg-[#103840] px-4 py-2.5">
+                <p class="font-semibold text-white">Difusión ampliada sin comprar prioridad</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="device-shell hero-sequence lg:justify-self-end" style="animation-delay: 0.3s;">
+            <div class="relative mx-auto w-full max-w-[520px] rounded-[2rem] border border-white/12 bg-white/10 p-4 shadow-float backdrop-blur-xl">
+              <div class="rounded-[1.6rem] border border-white/10 bg-[#0b2d34] p-4 shadow-glow">
+                <div class="flex items-center justify-between rounded-[1.4rem] border border-white/10 bg-[#113a42] px-5 py-3.5 text-[0.95rem] text-white/84">
+                  <div>
+                    <p class="font-semibold text-white">CivicReports</p>
+                    <p>Flujo ciudadano + institucional</p>
+                  </div>
+                  <span class="rounded-full bg-civic-amber/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-civic-deep">Beta</span>
+                </div>
+
+                <div class="mt-4 grid items-stretch gap-4 lg:grid-cols-[0.78fr_1.22fr]">
+                  <div class="rounded-[1.7rem] border border-white/10 bg-[#f5f0e5] p-3">
+                    <div class="mx-auto max-w-[194px] rounded-[2.2rem] border-[10px] border-[#0f1f23] bg-white p-2 shadow-float">
+                      <div class="mb-2 flex items-center justify-between px-2 pt-1 text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-civic-slate">
+                        <span>Juigalpa</span>
+                        <span>06:42 PM</span>
+                      </div>
+                      <div class="phone-map relative h-[300px] overflow-hidden rounded-[1.6rem] border border-civic-deep/8 p-3">
+                        <div class="route-line"></div>
+                        <span class="report-dot left-[18%] top-[24%]"></span>
+                        <span class="report-dot secondary right-[18%] top-[38%]"></span>
+                        <span class="report-dot left-[35%] bottom-[20%]"></span>
+
+                        <div class="absolute left-3 right-3 top-3 rounded-2xl bg-white p-3 shadow-[0_12px_30px_rgba(9,24,28,0.16)]">
+                          <div class="flex items-start justify-between gap-3">
+                            <div>
+                              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Reporte activo</p>
+                              <p class="mt-1 text-[0.9rem] font-semibold leading-6 text-civic-deep">Bache frente al mercado</p>
+                            </div>
+                            <span class="rounded-full bg-civic-mist px-2 py-1 text-[0.68rem] font-semibold text-civic-ink">GPS</span>
+                          </div>
+                          <div class="mt-3 h-10 rounded-2xl bg-gradient-to-br from-civic-ink via-civic-deep to-[#274d56] p-2.5">
+                            <div class="h-full rounded-xl border border-white/18 border-dashed bg-white/8"></div>
+                          </div>
+                        </div>
+
+                        <div class="absolute bottom-3 left-3 right-3 rounded-2xl bg-white p-3 shadow-[0_14px_32px_rgba(9,24,28,0.18)]">
+                          <div class="flex items-center justify-between">
+                            <div>
+                              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-civic-slate">Respaldo social</p>
+                              <p class="text-[1.55rem] font-bold leading-none text-civic-deep">128 firmas</p>
+                            </div>
+                            <span class="rounded-full bg-civic-amber px-3 py-1 text-[0.7rem] font-semibold text-civic-deep">Difundir</span>
+                          </div>
+                          <div class="mt-2.5 h-2 rounded-full bg-civic-mist">
+                            <div class="h-full w-[74%] rounded-full bg-civic-coral"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-4">
+                    <div class="dark-surface flex h-full flex-col rounded-[1.6rem] border border-white/12 px-5 py-6 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                      <p class="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-white/78">Por qué funciona</p>
+                      <ul class="mt-5 space-y-4 text-[0.95rem] leading-8 text-white/96">
+                        <li class="flex items-start gap-3"><span class="mt-3 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-amber"></span><span>La evidencia multimedia evita que el reporte se pierda en un chat o una llamada sin rastro.</span></li>
+                        <li class="flex items-start gap-3"><span class="mt-3 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-coral"></span><span>Las firmas digitales convierten malestar disperso en prioridad colectiva.</span></li>
+                        <li class="flex items-start gap-3"><span class="mt-3 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-mist"></span><span>El reporte llega con más contexto para clasificar y responder mejor.</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problema" class="section-anchor relative py-16 sm:py-20">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.84fr_1.16fr] lg:items-stretch lg:gap-12">
+          <div class="max-w-xl" data-reveal>
+            <p class="section-kicker text-civic-coral">Problema</p>
+            <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+              Hoy demasiadas denuncias nacen, circulan y se apagan sin dejar rastro útil.
+            </h2>
+            <p class="mt-5 max-w-lg text-lg leading-relaxed text-civic-slate">
+              Chats sueltos, llamadas informales y publicaciones aisladas hacen que una causa pierda fuerza antes de llegar a quien puede actuar.
+            </p>
+            <div class="mt-7 grid gap-4 sm:grid-cols-2">
+              <article class="float-card rounded-[1.6rem] border border-civic-deep/12 bg-[#fefcf7] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Sin rastro</p>
+                <p class="mt-2 text-base leading-8 text-civic-deep">Falta evidencia unificada, ubicación y un historial claro.</p>
+              </article>
+              <article class="float-card rounded-[1.6rem] border border-[#e2c58c] bg-[#fff2cf] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#b96d14]">Sin escala</p>
+                <p class="mt-2 text-base leading-8 text-civic-deep">La conversación rara vez sale del barrio o de la colonia.</p>
+              </article>
+            </div>
+          </div>
+
+          <article class="media-panel media-panel-dark media-glint min-h-[420px] rounded-[2.4rem] shadow-float" data-reveal>
+            <img
+              class="media-motion"
+              src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+              alt="Mujer consultando su teléfono en un espacio público"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="media-content flex h-full flex-col justify-end p-7 sm:p-9">
+              <span class="media-label">Del rumor al registro</span>
+              <h3 class="balanced mt-4 max-w-md font-display text-3xl font-bold leading-tight text-white sm:text-[2.15rem]">
+                CivicReports convierte una queja dispersa en una evidencia visible y compartible.
+              </h3>
+              <p class="media-note mt-4 text-base leading-relaxed">
+                Una foto, una ubicación y una ruta clara cambian por completo cómo se percibe una denuncia.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-10" data-reveal>
+          <div class="mb-6 max-w-2xl">
+            <p class="section-kicker text-civic-coral">Solución</p>
+            <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+              Menos explicación eterna, más señales visuales de por qué sí funciona.
+            </h2>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-3">
+            <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
+              <div class="photo-strip">
+                <img
+                  class="media-motion"
+                  src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                  alt="Personas usando sus teléfonos en un espacio público"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="p-6">
+                <p class="section-kicker text-civic-coral">Visibilidad con evidencia</p>
+                <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">Más claro desde el primer vistazo</h3>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">Fotos, GPS y contexto vuelven el caso más fácil de entender y compartir.</p>
+              </div>
+            </article>
+
+            <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
+              <div class="photo-strip">
+                <img
+                  class="media-motion"
+                  src="https://images.pexels.com/photos/8205060/pexels-photo-8205060.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                  alt="Persona firmando un documento"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="p-6">
+                <p class="section-kicker text-civic-coral">Respaldo medible</p>
+                <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">El apoyo se puede ver</h3>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">Las firmas digitales convierten interés disperso en respaldo visible.</p>
+              </div>
+            </article>
+
+            <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
+              <div class="photo-strip">
+                <img
+                  class="media-motion"
+                  src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                  alt="Fachada urbana que representa instituciones y ciudad"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="p-6">
+                <p class="section-kicker text-civic-coral">Ruta institucional</p>
+                <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">Más contexto para responder</h3>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">La denuncia llega mejor estructurada y con más claridad para clasificarla.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="flujo" class="section-anchor py-16 sm:py-18">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl" data-reveal>
+          <p class="section-kicker text-civic-coral">Cómo funciona</p>
+          <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+            Tres pasos para pasar del reporte individual a la movilización con seguimiento.
+          </h2>
+        </div>
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+            <div class="photo-strip">
+              <img
+                class="media-motion"
+                src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                alt="Ciudadana usando su teléfono para registrar información"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Paso 1</span>
+                <i data-lucide="map-pinned" class="h-7 w-7 text-civic-deep" aria-hidden="true"></i>
+              </div>
+              <h3 class="mt-5 font-display text-2xl font-bold text-civic-deep">Reporta con foto y GPS</h3>
+              <p class="mt-3 text-base leading-relaxed text-civic-slate">
+                La incidencia nace con ubicación, contexto y una prueba visual desde el inicio.
+              </p>
+            </div>
+          </article>
+
+          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+            <div class="photo-strip">
+              <img
+                class="media-motion"
+                src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                alt="Grupo de personas usando sus teléfonos y participando digitalmente"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Paso 2</span>
+                <i data-lucide="badge-check" class="h-7 w-7 text-civic-deep" aria-hidden="true"></i>
+              </div>
+              <h3 class="mt-5 font-display text-2xl font-bold text-civic-deep">Reúne firmas y visibilidad</h3>
+              <p class="mt-3 text-base leading-relaxed text-civic-slate">
+                El respaldo se acumula en un mismo lugar y puede ampliarse fuera de la zona inmediata.
+              </p>
+            </div>
+          </article>
+
+          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+            <div class="photo-strip">
+              <img
+                class="media-motion"
+                src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                alt="Edificio urbano que representa instituciones y gestión pública"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="p-6 sm:p-7">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Paso 3</span>
+                <i data-lucide="clipboard-list" class="h-7 w-7 text-civic-deep" aria-hidden="true"></i>
+              </div>
+              <h3 class="mt-5 font-display text-2xl font-bold text-civic-deep">Conecta con la institución correcta</h3>
+              <p class="mt-3 text-base leading-relaxed text-civic-slate">
+                La entidad recibe mejor información para clasificar, asignar y dar seguimiento.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impacto" class="section-anchor relative overflow-hidden bg-civic-deep py-16 text-white sm:py-20">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(242,180,91,0.18),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(235,122,88,0.18),_transparent_28%)]"></div>
+      <div class="relative mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+          <article class="media-panel media-panel-dark media-glint min-h-[430px] rounded-[2.4rem] shadow-float" data-reveal>
+            <img
+              class="media-motion"
+              src="https://images.pexels.com/photos/7688668/pexels-photo-7688668.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+              alt="Grupo de personas usando sus teléfonos en un entorno urbano"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="media-content flex h-full flex-col justify-between p-7 sm:p-9">
+              <div>
+                <p class="section-kicker text-civic-amber">Amplificación pagada</p>
+                <h2 class="balanced mt-4 max-w-xl font-display text-3xl font-bold text-white sm:text-4xl">
+                  Si una causa merece salir del radio local, también puede ganar más visibilidad fuera de su zona.
+                </h2>
+                <p class="mt-4 max-w-lg text-lg leading-relaxed text-white/92">
+                  La idea no es comprar prioridad. Es conseguir más alcance social, conversación y firmas alrededor de una causa legítima.
+                </p>
+              </div>
+              <div class="story-metric mt-8 max-w-sm px-5 py-4">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/66">Más alcance, misma ética</p>
+                <p class="mt-2 text-base leading-relaxed text-white/92">La difusión empuja la conversación, pero no sustituye la evaluación institucional.</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="grid gap-4" data-reveal>
+            <div class="dark-surface rounded-[2rem] p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/62">Qué sí hace</p>
+              <ul class="mt-4 space-y-3 text-base leading-7 text-white/86">
+                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Extiende el alcance de una denuncia a públicos de otras zonas.</li>
+                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Ayuda a reunir más firmas y respaldo alrededor de una causa legítima.</li>
+                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Mejora la difusión sin romper la trazabilidad del reporte original.</li>
+              </ul>
+            </div>
+            <div class="rounded-[2rem] border border-white/10 bg-civic-sand px-6 py-5 text-civic-deep">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Qué no hace</p>
+              <p class="mt-3 text-base leading-7 text-civic-slate">
+                No compra prioridad pública, no altera criterios técnicos y no reemplaza la responsabilidad de clasificar y responder.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch">
+          <article class="media-panel media-panel-sand min-h-[320px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.16)]" data-reveal>
+            <img
+              class="media-motion"
+              src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+              alt="Fachada urbana que representa una institución en la ciudad"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="media-content flex h-full flex-col justify-end p-7 sm:p-9">
+              <p class="section-kicker text-civic-coral">Señales de confianza</p>
+              <h2 class="balanced mt-4 max-w-md font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+                Un proyecto con raíz local y una estructura pensada para crecer con transparencia.
+              </h2>
+            </div>
+          </article>
+
+          <div class="grid gap-4 sm:grid-cols-3" data-reveal>
+            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+              <i data-lucide="university" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
+              <h3 class="mt-4 text-xl font-semibold text-civic-deep">Origen real</h3>
+              <p class="mt-3 text-base leading-8 text-civic-deep">Nace desde Juigalpa como un caso visible y concreto.</p>
+            </article>
+            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+              <i data-lucide="shield-check" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
+              <h3 class="mt-4 text-xl font-semibold text-civic-deep">Trazabilidad</h3>
+              <p class="mt-3 text-base leading-8 text-civic-deep">El reporte gana recorrido, evidencia y más claridad posterior.</p>
+            </article>
+            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+              <i data-lucide="building" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
+              <h3 class="mt-4 text-xl font-semibold text-civic-deep">Dos audiencias</h3>
+              <p class="mt-3 text-base leading-8 text-civic-deep">Sirve tanto al ciudadano que reporta como a la institución que responde.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 sm:py-16">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-[#f9f6ef] shadow-[0_24px_60px_rgba(11,36,42,0.08)]" data-reveal>
+            <div class="photo-strip" style="--photo-strip-height: 13rem;">
+              <img
+                class="media-motion"
+                src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                alt="Ciudadana usando su teléfono"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="p-7 sm:p-8">
+              <p class="section-kicker text-civic-coral">Para ciudadanos</p>
+              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Reportar deja de sentirse inútil.</h2>
+              <ul class="mt-5 space-y-4 text-base leading-7 text-civic-slate">
+                <li class="flex gap-3"><i data-lucide="camera" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Subes evidencia, ubicación y contexto en un solo flujo.</li>
+                <li class="flex gap-3"><i data-lucide="users" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Convocas firmas y respaldo alrededor de una misma causa.</li>
+                <li class="flex gap-3"><i data-lucide="bell-ring" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Ganas visibilidad y seguimiento con más claridad.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-white shadow-[0_24px_60px_rgba(11,36,42,0.08)]" data-reveal>
+            <div class="photo-strip" style="--photo-strip-height: 13rem;">
+              <img
+                class="media-motion"
+                src="https://images.pexels.com/photos/8205060/pexels-photo-8205060.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+                alt="Documento siendo firmado, como referencia a gestión y trazabilidad"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="p-7 sm:p-8">
+              <p class="section-kicker text-civic-coral">Para instituciones</p>
+              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Gestionar mejor empieza con recibir mejor información.</h2>
+              <ul class="mt-5 space-y-4 text-base leading-7 text-civic-slate">
+                <li class="flex gap-3"><i data-lucide="map" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Recibes incidencias con evidencia geolocalizada desde el inicio.</li>
+                <li class="flex gap-3"><i data-lucide="bar-chart-3" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Identificas prioridades con más visibilidad y trazabilidad.</li>
+                <li class="flex gap-3"><i data-lucide="kanban-square" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Abres la puerta a flujos posteriores más ordenados.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-anchor py-16 sm:py-18">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
+          <article class="media-panel media-panel-light min-h-[520px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.12)]" data-reveal>
+            <img
+              class="media-motion"
+              src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
+              alt="Ciudadanos usando sus teléfonos en un parque"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="media-content flex h-full flex-col justify-between p-7 sm:p-8">
+              <div>
+                <p class="section-kicker text-civic-coral">FAQ</p>
+                <h2 class="balanced mt-4 max-w-md font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+                  Dudas normales antes de apoyar o abrir una alianza.
+                </h2>
+              </div>
+              <div class="space-y-3">
+                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Privacidad y evidencia</p>
+                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Firmas y visibilidad</p>
+                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Escala y respuesta</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="soft-panel rounded-[2rem] p-6 sm:p-8" data-reveal>
+            <details open>
+              <summary class="flex items-start justify-between gap-4">
+                <span class="text-lg font-semibold text-civic-deep">¿CivicReports sustituye a la institución?</span>
+                <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
+              </summary>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Mejora la comunicación y el seguimiento, pero la respuesta sigue siendo responsabilidad de la entidad competente.</p>
+            </details>
+            <details>
+              <summary class="flex items-start justify-between gap-4">
+                <span class="text-lg font-semibold text-civic-deep">¿Las firmas digitales reemplazan la evaluación técnica?</span>
+                <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
+              </summary>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Ayudan a dimensionar respaldo y visibilidad, pero no sustituyen criterios técnicos ni operativos.</p>
+            </details>
+            <details>
+              <summary class="flex items-start justify-between gap-4">
+                <span class="text-lg font-semibold text-civic-deep">¿La publicidad pagada compra prioridad?</span>
+                <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
+              </summary>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Solo amplifica la difusión de una causa y atrae apoyo fuera de la zona local.</p>
+            </details>
+            <details>
+              <summary class="flex items-start justify-between gap-4">
+                <span class="text-lg font-semibold text-civic-deep">¿El proyecto se limita a Juigalpa?</span>
+                <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
+              </summary>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Juigalpa funciona como punto de partida, pero la visión está pensada para más ciudades de Nicaragua.</p>
+            </details>
+            <details>
+              <summary class="flex items-start justify-between gap-4">
+                <span class="text-lg font-semibold text-civic-deep">¿Ya está enviando datos reales esta landing?</span>
+                <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
+              </summary>
+              <p class="mt-4 text-base leading-7 text-civic-slate">Todavía no. Esta versión deja listo el flujo visual para conectarlo después a backend, CRM o Supabase.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-12 pb-8 sm:pt-14 sm:pb-10">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div class="max-w-2xl" data-reveal>
+            <p class="section-kicker text-civic-coral">Equipo</p>
+            <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+            Un proyecto impulsado desde Ingeniería en Sistemas de Información con visión social y técnica.
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-civic-slate">
+              CivicReports se presenta como una propuesta nacida desde CUR-Chontales, UNAN-Managua, con un enfoque claro en infraestructura pública, participación ciudadana y gestión más visible.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3" data-reveal>
+            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Product Owner</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Iliana Vanessa Cabrera</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Sostiene la visión del producto y valida su sentido social.</p>
+            </article>
+            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Scrum Master</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Derling Dariel Cruz</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Coordina la ejecución técnica y la estructura backend del proyecto.</p>
+            </article>
+            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">UX / UI</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Evertz David López Torrez</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Da forma visual a la experiencia y a la identidad de CivicReports.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="conversion" class="section-anchor pb-20 pt-10 sm:pb-24 sm:pt-12">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+          <div class="rounded-[2.2rem] bg-[#0a2930] px-6 py-8 text-white shadow-float sm:px-8" data-reveal>
+            <p class="section-kicker text-civic-amber">CTA final</p>
+            <h2 id="form-title" class="balanced mt-4 font-display text-3xl font-bold text-white sm:text-4xl">
+              Únete a la beta ciudadana.
+            </h2>
+            <p id="form-copy" class="mt-4 text-lg leading-relaxed text-white/84">
+              Déjanos tus datos y te dejamos listo para las primeras pruebas, feedback y próximos anuncios del proyecto.
+            </p>
+
+            <div class="mt-6 rounded-[1.6rem] border border-white/10 bg-white/10 px-5 py-4">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/66">Acceso temprano</p>
+              <p class="mt-2 max-w-md text-base leading-relaxed text-white/82">
+                Este es el mejor momento para entrar y dejar feedback mientras el producto todavía está tomando forma.
+              </p>
+            </div>
+
+            <div class="mt-6 rounded-[1.8rem] border border-white/10 bg-[#123842] p-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/66">Qué te llevas</p>
+              <ul class="mt-4 space-y-3 text-base leading-relaxed text-white/84">
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Prioridad para conocer la beta y sus próximas iteraciones.</li>
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Comunicación clara sobre enfoque ciudadano o institucional según tu interés.</li>
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Un flujo listo para conectarse luego a Supabase, CRM o correo automatizado.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="rounded-[2.2rem] border border-civic-deep/10 bg-white p-6 shadow-[0_26px_70px_rgba(11,36,42,0.1)] sm:p-8" data-reveal>
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="text-sm font-semibold uppercase tracking-[0.2em] text-civic-coral">Formulario</span>
+              <span id="interest-chip" class="interest-chip inline-flex items-center gap-2 rounded-full border border-civic-deep/12 bg-civic-mist px-3 py-1.5 text-sm font-semibold text-civic-deep">
+                <span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>
+                Ruta ciudadana
+              </span>
+            </div>
+
+            <form id="lead-form" class="mt-8 space-y-5" novalidate>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <label class="block">
+                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Nombre</span>
+                  <input id="name" name="name" type="text" autocomplete="name" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Tu nombre completo">
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Correo</span>
+                  <input id="email" name="email" type="email" autocomplete="email" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="tunombre@correo.com">
+                </label>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <label class="block">
+                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Tipo de interés</span>
+                  <select id="interest" name="interest" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10">
+                    <option value="Ciudadano">Ciudadano</option>
+                    <option value="Institución">Institución</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Municipio o ciudad</span>
+                  <input id="city" name="city" type="text" autocomplete="address-level2" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Juigalpa, Managua, León...">
+                </label>
+              </div>
+
+              <label class="block">
+                <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Mensaje opcional</span>
+                <textarea id="message" name="message" rows="5" class="w-full rounded-[1.6rem] border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Cuéntanos qué te gustaría reportar, impulsar o coordinar."></textarea>
+              </label>
+
+              <div class="rounded-[1.4rem] border border-civic-deep/10 bg-[#f8f4ea] px-4 py-4 text-sm leading-relaxed text-civic-slate">
+                Esta demo valida el flujo visual y la intención de conversión. Todavía no guarda datos reales, pero el formulario queda preparado para conectarse a backend después.
+              </div>
+
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-deep px-6 py-3.5 text-base font-semibold text-white transition hover:bg-civic-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-coral focus-visible:ring-offset-2">
+                  Quiero entrar primero
+                  <i data-lucide="send" class="h-5 w-5" aria-hidden="true"></i>
+                </button>
+                <p class="text-sm font-medium uppercase tracking-[0.14em] text-civic-slate">Cero spam. Solo interés bien encaminado.</p>
+              </div>
+
+              <div id="form-status" class="status-box hidden rounded-[1.4rem] border px-4 py-4 text-base leading-relaxed" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-civic-deep/10 bg-white/70 py-6">
+    <div class="mx-auto flex max-w-[1160px] flex-col gap-2 px-5 text-sm text-civic-slate sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <p>CivicReports nace en Juigalpa como una propuesta de acción cívica con evidencia, respaldo y seguimiento.</p>
+      <p>Landing MVP estática lista para desplegar en Vercel.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const header = document.querySelector("[data-header]");
+    const reveals = document.querySelectorAll("[data-reveal]");
+    const interestSelect = document.getElementById("interest");
+    const interestChip = document.getElementById("interest-chip");
+    const formTitle = document.getElementById("form-title");
+    const formCopy = document.getElementById("form-copy");
+    const leadForm = document.getElementById("lead-form");
+    const formStatus = document.getElementById("form-status");
+    const interestButtons = document.querySelectorAll("[data-interest-target]");
+
+    reveals.forEach((element, index) => {
+      const step = index % 3;
+      element.style.transitionDelay = `${step * 70}ms`;
+    });
+
+    function setFormRoute(route) {
+      interestSelect.value = route;
+
+      if (route === "Institución") {
+        interestChip.innerHTML = '<span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>Ruta institucional';
+        interestChip.className = "interest-chip inline-flex items-center gap-2 rounded-full border border-civic-coral/15 bg-civic-coral/10 px-3 py-1.5 text-sm font-semibold text-civic-deep";
+        formTitle.textContent = "Solicita una demo institucional.";
+        formCopy.textContent = "Déjanos tus datos para presentarte el enfoque, el flujo institucional y la visión de despliegue del proyecto.";
+      } else {
+        interestChip.innerHTML = '<span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>Ruta ciudadana';
+        interestChip.className = "interest-chip inline-flex items-center gap-2 rounded-full border border-civic-deep/12 bg-civic-mist px-3 py-1.5 text-sm font-semibold text-civic-deep";
+        formTitle.textContent = "Únete a la beta ciudadana.";
+        formCopy.textContent = "Déjanos tus datos y te dejamos listo para las primeras pruebas, feedback y próximos anuncios del proyecto.";
+      }
+    }
+
+    function clearFieldState() {
+      leadForm.querySelectorAll(".field-invalid").forEach((field) => field.classList.remove("field-invalid"));
+      formStatus.classList.add("hidden");
+      formStatus.textContent = "";
+      formStatus.removeAttribute("data-state");
+    }
+
+    function showStatus(message, state) {
+      formStatus.textContent = message;
+      formStatus.dataset.state = state;
+      formStatus.classList.remove("hidden");
+    }
+
+    interestButtons.forEach((button) => {
+      button.addEventListener("click", () => setFormRoute(button.dataset.interestTarget));
+    });
+
+    interestSelect.addEventListener("change", (event) => setFormRoute(event.target.value));
+
+    function updateHeaderState() {
+      const currentScrollY = window.scrollY;
+      header.classList.toggle("header-scrolled", currentScrollY > 10);
+      if (currentScrollY > lastScrollY && currentScrollY > 140) {
+        header.classList.add("header-hidden");
+      } else {
+        header.classList.remove("header-hidden");
+      }
+      lastScrollY = currentScrollY;
+    }
+
+    let lastScrollY = window.scrollY;
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+    if (!reducedMotion && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: "0px 0px -8% 0px" });
+
+      reveals.forEach((element) => observer.observe(element));
+    } else {
+      reveals.forEach((element) => element.classList.add("is-visible"));
+    }
+
+    leadForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      clearFieldState();
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const city = document.getElementById("city");
+      const fields = [
+        { element: name, isValid: name.value.trim().length >= 3 },
+        { element: email, isValid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) },
+        { element: city, isValid: city.value.trim().length >= 2 }
+      ];
+
+      const invalidFields = fields.filter((field) => !field.isValid);
+      if (invalidFields.length > 0) {
+        invalidFields.forEach((field) => field.element.classList.add("field-invalid"));
+        showStatus("Revisa los campos marcados. Necesitamos al menos nombre, correo válido y municipio o ciudad para dejar lista tu ruta.", "error");
+        invalidFields[0].element.focus();
+        return;
+      }
+
+      const routeLabel = interestSelect.value === "Institución" ? "institucional" : "ciudadana";
+      showStatus("Flujo validado. Esta demo ya deja preparada tu ruta " + routeLabel + " para conectarse a backend o CRM en el siguiente paso.", "success");
+      leadForm.reset();
+      setFormRoute("Ciudadano");
+    });
+
+    setFormRoute("Ciudadano");
+    if (window.lucide) {
+      window.lucide.createIcons();
+      document.querySelectorAll("svg.lucide").forEach((icon) => {
+        icon.setAttribute("aria-hidden", "true");
+        icon.setAttribute("focusable", "false");
+      });
+    }
+  </script>
+</body>
+</html>
