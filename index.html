@@ -1,23 +1,29 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CivicReports | Convierte evidencia ciudadana en apoyo real</title>
-  <meta name="description" content="CivicReports transforma denuncias ciudadanas en reportes con foto, GPS, firmas digitales y seguimiento institucional. Nace en Juigalpa para escalar a más ciudades de Nicaragua.">
+  <meta name="description"
+    content="CivicReports transforma denuncias ciudadanas en reportes con foto, GPS, firmas digitales y seguimiento institucional. Nace en Juigalpa para escalar a más ciudades de Nicaragua.">
   <meta name="theme-color" content="#0d3a43">
   <meta property="og:title" content="CivicReports | Acción cívica respaldada por evidencia">
-  <meta property="og:description" content="Denuncia con evidencia, reúne apoyo y conecta con instituciones desde una sola plataforma.">
+  <meta property="og:description"
+    content="Denuncia con evidencia, reúne apoyo y conecta con instituciones desde una sola plataforma.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_NI">
   <meta property="og:image" content="https://placehold.co/1200x630/0d3a43/f4efe3?text=CivicReports">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CivicReports">
-  <meta name="twitter:description" content="Una landing para impulsar reportes ciudadanos con evidencia, firmas digitales y seguimiento institucional.">
+  <meta name="twitter:description"
+    content="Una landing para impulsar reportes ciudadanos con evidencia, firmas digitales y seguimiento institucional.">
   <link rel="icon" href="./assets/civicreports-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -42,6 +48,34 @@
           boxShadow: {
             float: "0 30px 80px rgba(4, 15, 18, 0.22)",
             glow: "0 0 0 1px rgba(255,255,255,0.08), 0 28px 60px rgba(7, 29, 34, 0.32)"
+          },
+          animation: {
+            'levitate': 'levitate 5s ease-in-out infinite',
+            'levitate-delayed': 'levitate 5s ease-in-out 2.5s infinite',
+            'bounce-drop': 'bounceDrop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+            'fly-away': 'flyAway 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+            'pop-in': 'popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards'
+          },
+          keyframes: {
+            levitate: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            },
+            bounceDrop: {
+              '0%': { transform: 'translateY(-50px) scale(1.2)', opacity: '0' },
+              '60%': { transform: 'translateY(10px) scale(0.9)', opacity: '1' },
+              '80%': { transform: 'translateY(-5px) scale(1.05)' },
+              '100%': { transform: 'translateY(0) scale(1)', opacity: '1' }
+            },
+            flyAway: {
+              '0%': { transform: 'translate(0, 0) scale(1) rotate(0deg)', opacity: '1' },
+              '15%': { transform: 'translate(-10px, 15px) scale(0.9) rotate(-10deg)', opacity: '1' },
+              '100%': { transform: 'translate(300px, -1500px) scale(0.5) rotate(45deg)', opacity: '0' }
+            },
+            popIn: {
+              '0%': { transform: 'scale(0.5)', opacity: '0' },
+              '100%': { transform: 'scale(1)', opacity: '1' }
+            }
           }
         }
       }
@@ -54,19 +88,53 @@
       --section-max: 1160px;
     }
 
-    .bg-civic-deep { background-color: #071d22; }
-    .bg-civic-tide { background-color: #0d3a43; }
-    .bg-civic-ink { background-color: #123f48; }
-    .bg-civic-sand { background-color: #f4efe3; }
-    .bg-civic-amber { background-color: #f2b45b; }
-    .bg-civic-mist { background-color: #d7ece9; }
-    .text-civic-deep { color: #071d22; }
-    .text-civic-slate { color: #39535a; }
-    .text-civic-coral { color: #eb7a58; }
-    .text-civic-amber { color: #f2b45b; }
-    .text-civic-mist { color: #d7ece9; }
+    .bg-civic-deep {
+      background-color: #071d22;
+    }
 
-    html { scroll-behavior: smooth; }
+    .bg-civic-tide {
+      background-color: #0d3a43;
+    }
+
+    .bg-civic-ink {
+      background-color: #123f48;
+    }
+
+    .bg-civic-sand {
+      background-color: #f4efe3;
+    }
+
+    .bg-civic-amber {
+      background-color: #f2b45b;
+    }
+
+    .bg-civic-mist {
+      background-color: #d7ece9;
+    }
+
+    .text-civic-deep {
+      color: #071d22;
+    }
+
+    .text-civic-slate {
+      color: #39535a;
+    }
+
+    .text-civic-coral {
+      color: #eb7a58;
+    }
+
+    .text-civic-amber {
+      color: #f2b45b;
+    }
+
+    .text-civic-mist {
+      color: #d7ece9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: "Source Sans 3", sans-serif;
@@ -90,9 +158,17 @@
       z-index: -2;
     }
 
-    .section-shell { max-width: var(--section-max); }
-    .section-anchor { scroll-margin-top: calc(var(--header-height) + 28px); }
-    .balanced { text-wrap: balance; }
+    .section-shell {
+      max-width: var(--section-max);
+    }
+
+    .section-anchor {
+      scroll-margin-top: calc(var(--header-height) + 12px);
+    }
+
+    .balanced {
+      text-wrap: balance;
+    }
 
     .soft-panel {
       background: rgba(255, 255, 255, 0.95);
@@ -193,7 +269,9 @@
       transition: color 0.35s var(--ease-standard), opacity 0.35s var(--ease-standard);
     }
 
-    .header-nav-link:hover { color: #ffffff; }
+    .header-nav-link:hover {
+      color: #ffffff;
+    }
 
     .header-cta {
       border-color: rgba(255, 255, 255, 0.22);
@@ -239,7 +317,9 @@
       background: #123f48;
     }
 
-    [data-header].header-hidden { transform: translateY(-100%); }
+    [data-header].header-hidden {
+      transform: translateY(-100%);
+    }
 
     .hero-sequence {
       opacity: 0;
@@ -247,7 +327,11 @@
       animation: rise-in 0.8s var(--ease-standard) forwards;
     }
 
-    .device-shell { position: relative; isolation: isolate; }
+    .device-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
     .device-shell::before {
       content: "";
       position: absolute;
@@ -274,38 +358,6 @@
       text-transform: uppercase;
       font-size: 0.78rem;
       font-weight: 700;
-    }
-
-    .phone-map {
-      background:
-        radial-gradient(circle at 32% 26%, rgba(235, 122, 88, 0.32), transparent 8%),
-        radial-gradient(circle at 78% 65%, rgba(242, 180, 91, 0.22), transparent 11%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(224, 237, 235, 0.96)),
-        repeating-linear-gradient(90deg, rgba(19, 63, 72, 0.12) 0, rgba(19, 63, 72, 0.12) 1px, transparent 1px, transparent 44px),
-        repeating-linear-gradient(0deg, rgba(19, 63, 72, 0.12) 0, rgba(19, 63, 72, 0.12) 1px, transparent 1px, transparent 44px);
-      position: relative;
-    }
-
-    .route-line {
-      position: absolute;
-      inset: 18% 16% 16% 14%;
-      border: 2px dashed rgba(13, 58, 67, 0.4);
-      border-radius: 28px 42px 32px 34px;
-      transform: rotate(8deg);
-    }
-
-    .report-dot {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: #eb7a58;
-      box-shadow: 0 0 0 8px rgba(235, 122, 88, 0.16);
-    }
-
-    .report-dot.secondary {
-      background: #0d3a43;
-      box-shadow: 0 0 0 8px rgba(13, 58, 67, 0.12);
     }
 
     .media-panel {
@@ -470,24 +522,134 @@
       transform: scale(1.05) translateY(-4px);
     }
 
-    .divider-list > * + * { border-top: 1px solid rgba(13, 58, 67, 0.12); }
+    details {
+      border-top: 1px solid rgba(13, 58, 67, 0.12);
+      padding-top: 1.1rem;
+    }
 
-    details { border-top: 1px solid rgba(13, 58, 67, 0.12); padding-top: 1.1rem; }
-    details summary { cursor: pointer; list-style: none; }
-    details summary::-webkit-details-marker { display: none; }
-    details[open] .faq-indicator { transform: rotate(45deg); }
-    .faq-indicator { transition: transform 0.25s ease; }
-    .interest-chip { transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
-    .status-box[data-state="error"] { background: rgba(235, 122, 88, 0.12); border-color: rgba(235, 122, 88, 0.28); color: #8f3a20; }
-    .status-box[data-state="success"] { background: rgba(13, 58, 67, 0.1); border-color: rgba(13, 58, 67, 0.2); color: #0d3a43; }
-    .field-invalid { border-color: rgba(235, 122, 88, 0.9) !important; box-shadow: 0 0 0 4px rgba(235, 122, 88, 0.12); }
-    @keyframes rise-in { to { opacity: 1; transform: translateY(0); } }
+    details summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] .faq-indicator {
+      transform: rotate(45deg);
+    }
+
+    .faq-indicator {
+      transition: transform 0.25s ease;
+    }
+
+    .interest-chip {
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .status-box[data-state="error"] {
+      background: rgba(235, 122, 88, 0.12);
+      border-color: rgba(235, 122, 88, 0.28);
+      color: #8f3a20;
+    }
+
+    .status-box[data-state="success"] {
+      background: rgba(13, 58, 67, 0.1);
+      border-color: rgba(13, 58, 67, 0.2);
+      color: #0d3a43;
+    }
+
+    .field-invalid {
+      border-color: rgba(235, 122, 88, 0.9) !important;
+      box-shadow: 0 0 0 4px rgba(235, 122, 88, 0.12);
+    }
+
+    /* Estilos para las tarjetas de Radio Button */
+    .radio-card-input:checked+.radio-card-body {
+      border-color: #eb7a58;
+      background-color: #fffaf5;
+      box-shadow: 0 0 0 4px rgba(235, 122, 88, 0.1);
+    }
+
+    .radio-card-input:checked+.radio-card-body .radio-icon {
+      color: #eb7a58;
+    }
+
+    /* Estilos para las encuestas interactivas */
+    .poll-btn.selected {
+      background-color: #eb7a58;
+      color: white;
+      border-color: #eb7a58;
+    }
+
+    /* Estilos para Slider de Rango */
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background: #eb7a58;
+      cursor: pointer;
+      margin-top: -10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      cursor: pointer;
+      background: #d7ece9;
+      border-radius: 3px;
+    }
+
+    @keyframes rise-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-      [data-reveal], .hero-sequence, .media-motion { opacity: 1 !important; transform: none !important; filter: none !important; }
-      .media-glint::after { display: none !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      [data-reveal],
+      .hero-sequence,
+      .media-motion {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .media-glint::after {
+        display: none !important;
+      }
+
+      .animate-levitate {
+        animation: none;
+        transform: none;
+      }
+
+      .animate-fly-away {
+        animation: none;
+        transform: none;
+        opacity: 0;
+      }
     }
 
     @media (max-width: 1023px) {
@@ -497,39 +659,338 @@
           linear-gradient(180deg, rgba(7, 29, 34, 0.88) 0%, rgba(7, 29, 34, 0.72) 70%, rgba(7, 29, 34, 0.16) 100%);
       }
 
-      .photo-strip { height: 10.5rem; }
+      .photo-strip {
+        height: 10.5rem;
+      }
+    }
+
+    /* ====== DEVICE MORPH SCREENS ====== */
+    .morph-screen-content {
+      transition: opacity 0.5s ease;
+    }
+
+    .heat-point {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .heat-point::before,
+    .heat-point::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    .heat-point::before {
+      animation: heartbeat 1.6s ease-in-out infinite;
+    }
+
+    .heat-point::after {
+      animation: heartbeat 1.6s ease-in-out 0.4s infinite;
+    }
+
+    .heat-critical {
+      background: #eb7a58;
+      box-shadow: 0 0 6px rgba(235, 122, 88, 0.7);
+    }
+
+    .heat-critical::before,
+    .heat-critical::after {
+      background: rgba(235, 122, 88, 0.35);
+    }
+
+    .heat-moderate {
+      background: #f2b45b;
+      box-shadow: 0 0 6px rgba(242, 180, 91, 0.7);
+    }
+
+    .heat-moderate::before,
+    .heat-moderate::after {
+      background: rgba(242, 180, 91, 0.35);
+    }
+
+    .heat-label {
+      position: absolute;
+      bottom: calc(100% + 5px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(7, 29, 34, 0.9);
+      color: #fff;
+      font-size: 7px;
+      font-weight: 700;
+      padding: 2px 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+        opacity: 0.7
+      }
+
+      25% {
+        transform: scale(2.2);
+        opacity: 0.3
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 0
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 0
+      }
+    }
+
+    .kanban-card {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    @keyframes kanbanMove {
+      0% {
+        transform: translateX(0);
+        opacity: 1
+      }
+
+      40% {
+        transform: translateX(8px) scale(1.06);
+        opacity: 0.6
+      }
+
+      60% {
+        opacity: 0
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1
+      }
+    }
+
+    /* ====== MINI-GAMES ====== */
+    .puzzle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    .puzzle-piece {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      user-select: none;
+      border: 2px solid transparent;
+    }
+
+    .puzzle-piece:hover {
+      transform: scale(1.08);
+    }
+
+    .puzzle-piece.selected {
+      border-color: #eb7a58;
+      box-shadow: 0 0 0 3px rgba(235, 122, 88, 0.25);
+      transform: scale(1.1);
+    }
+
+    .puzzle-piece.correct {
+      border-color: #22c55e;
+      background: rgba(34, 197, 94, 0.15) !important;
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.85;
+    }
+
+    .puzzle-piece.correct::after {
+      content: '✓';
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      font-size: 10px;
+      color: #22c55e;
+      font-weight: 900;
+    }
+
+    @keyframes puzzleLock {
+      0% {
+        transform: scale(1)
+      }
+
+      30% {
+        transform: scale(1.2)
+      }
+
+      60% {
+        transform: scale(0.95)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    .puzzle-piece.just-locked {
+      animation: puzzleLock 0.5s ease-out;
+    }
+
+    @keyframes confetti {
+      0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1
+      }
+
+      100% {
+        transform: translateY(-80px) rotate(360deg);
+        opacity: 0
+      }
+    }
+
+    .confetti-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      animation: confetti 1s ease-out forwards;
+    }
+
+    .vip-court {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vip-report {
+      width: 40px;
+      height: 50px;
+      border-radius: 6px;
+      position: absolute;
+      transition: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .vip-basket {
+      width: 70px;
+      height: 50px;
+      border-radius: 8px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 2px dashed;
+      font-size: 8px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .power-bar-track {
+      height: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .power-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.05s linear;
+    }
+
+    .roulette-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .roulette-wheel {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      position: relative;
+      transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+      box-shadow: 0 0 0 6px rgba(7, 29, 34, 0.15), 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .roulette-segment {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      top: 0;
+      left: 50%;
+      transform-origin: 0% 100%;
+      clip-path: polygon(0 100%, 100% 0, 0 0);
+      overflow: hidden;
+    }
+
+    .roulette-pointer {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 18px solid #eb7a58;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVFMERR57J"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-CVFMERR57J');
   </script>
 </head>
+
 <body class="font-body text-civic-deep antialiased">
-  
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LGKBHXC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LGKBHXC" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
   <header data-header class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
-    <nav class="mx-auto flex h-[var(--header-height)] max-w-[1160px] items-center justify-between px-5 sm:px-6 lg:px-8" aria-label="Principal">
+    <nav class="mx-auto flex h-[var(--header-height)] max-w-[1160px] items-center justify-between px-5 sm:px-6 lg:px-8"
+      aria-label="Principal">
       <a href="#top" class="flex items-center gap-3">
         <span class="header-brand-mark inline-flex items-center justify-center" aria-hidden="true">
-          <img src="./assets/civicreports-mark.svg" alt="" class="brand-mark-image">
+          <img src="./assets/civicreports-mark.svg" alt="" class="brand-mark-image" onerror="this.style.display='none'">
         </span>
         <span class="header-brand-name font-display text-lg font-semibold sm:text-xl">CivicReports</span>
       </a>
-      <div class="hidden items-center gap-6 text-[0.98rem] font-medium lg:flex">
+
+      <div class="hidden items-center gap-5 text-[0.92rem] font-medium lg:flex">
         <a href="#problema" class="header-nav-link">Problema</a>
+        <a href="#solucion" class="header-nav-link">Solución</a>
         <a href="#flujo" class="header-nav-link">Cómo funciona</a>
         <a href="#impacto" class="header-nav-link">Amplificación</a>
+        <a href="#equipo" class="header-nav-link">Equipo</a>
         <a href="#faq" class="header-nav-link">FAQ</a>
+        <a href="#conversion" class="header-nav-link text-civic-amber hover:text-[#f4c373] font-bold">Registro</a>
       </div>
-      <a href="#conversion" data-interest-target="Ciudadano" class="header-cta inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2">
+
+      <a href="#conversion"
+        class="header-cta inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2">
         Únete a la beta
         <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>
       </a>
@@ -539,33 +1000,42 @@
   <main id="main-content">
     <section id="top" class="relative overflow-hidden bg-civic-deep text-white">
       <div class="urban-mesh"></div>
-      <div class="relative mx-auto flex min-h-[100svh] max-w-[1240px] items-center px-5 pb-10 pt-24 sm:px-6 lg:px-8 lg:pb-12">
+      <div
+        class="relative mx-auto flex min-h-[100svh] max-w-[1240px] items-center px-5 pb-10 pt-24 sm:px-6 lg:px-8 lg:pb-12">
         <div class="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(420px,0.94fr)] lg:gap-10">
           <div class="relative max-w-[39rem] lg:max-w-[36rem]">
             <div class="hero-copy-plane" aria-hidden="true"></div>
-            <p class="hero-sequence relative inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/12 px-4 py-2 text-sm font-semibold tracking-[0.18em] text-white/90 uppercase" style="animation-delay: 0.08s;">
+            <p class="hero-sequence relative inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/12 px-4 py-2 text-sm font-semibold tracking-[0.18em] text-white/90 uppercase"
+              style="animation-delay: 0.08s;">
               <span class="inline-block h-2 w-2 rounded-full bg-civic-amber"></span>
               Desde Juigalpa hacia más ciudades de Nicaragua
             </p>
-            <h1 class="hero-sequence balanced relative mt-5 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.98] text-white sm:text-5xl lg:text-[3.75rem]" style="animation-delay: 0.18s;">
+            <h1
+              class="hero-sequence balanced relative mt-5 max-w-[12ch] font-display text-4xl font-extrabold leading-[0.98] text-white sm:text-5xl lg:text-[3.75rem]"
+              style="animation-delay: 0.18s;">
               Convierte una denuncia aislada en evidencia visible, apoyo ciudadano y seguimiento institucional.
             </h1>
-            <p class="hero-sequence relative mt-5 max-w-[34rem] text-[1.02rem] leading-8 text-white/86 sm:text-lg" style="animation-delay: 0.28s;">
-              CivicReports permite reportar problemas comunitarios con foto y GPS, reunir firmas digitales y amplificar la visibilidad de una causa sin depender solo del alcance local.
+            <p class="hero-sequence relative mt-5 max-w-[34rem] text-[1.02rem] leading-8 text-white/86 sm:text-lg"
+              style="animation-delay: 0.28s;">
+              CivicReports permite reportar problemas comunitarios con foto y GPS, reunir firmas digitales y amplificar
+              la visibilidad de una causa sin depender solo del alcance local.
             </p>
 
             <div class="hero-sequence relative mt-7 flex flex-col gap-3 sm:flex-row" style="animation-delay: 0.38s;">
-              <a href="#conversion" data-interest-target="Ciudadano" class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-amber px-6 py-3.5 text-base font-semibold text-civic-deep transition hover:-translate-y-0.5 hover:bg-[#f4c373] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
+              <a href="#conversion"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-amber px-6 py-3.5 text-base font-semibold text-civic-deep transition hover:-translate-y-0.5 hover:bg-[#f4c373] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
                 Únete a la beta ciudadana
                 <i data-lucide="megaphone" class="h-5 w-5" aria-hidden="true"></i>
               </a>
-              <a href="#conversion" data-interest-target="Institución" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/18 bg-white/12 px-6 py-3.5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
-                Solicita demo para institución
+              <a href="#conversion"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-white/18 bg-white/12 px-6 py-3.5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-amber focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep">
+                Solicita demo institucional
                 <i data-lucide="building-2" class="h-5 w-5" aria-hidden="true"></i>
               </a>
             </div>
 
-            <div class="hero-sequence relative mt-6 flex flex-wrap gap-3 text-sm text-white/88" style="animation-delay: 0.48s;">
+            <div class="hero-sequence relative mt-6 flex flex-wrap gap-3 text-sm text-white/88"
+              style="animation-delay: 0.48s;">
               <div class="rounded-full border border-white/12 bg-[#103840] px-4 py-2.5">
                 <p class="font-semibold text-white">Foto + GPS desde el origen</p>
               </div>
@@ -573,91 +1043,247 @@
                 <p class="font-semibold text-white">Firmas que vuelven visible el respaldo</p>
               </div>
               <div class="rounded-full border border-white/12 bg-[#103840] px-4 py-2.5">
-                <p class="font-semibold text-white">Difusión ampliada sin comprar prioridad</p>
+                <p class="font-semibold text-white">Difusión sin comprar prioridad</p>
               </div>
             </div>
           </div>
 
-          <div class="device-shell hero-sequence lg:justify-self-end" style="animation-delay: 0.3s;">
-            <div class="relative mx-auto w-full max-w-[520px] rounded-[2rem] border border-white/12 bg-white/10 p-4 shadow-float backdrop-blur-xl">
-              <div class="rounded-[1.6rem] border border-white/10 bg-[#0b2d34] p-4 shadow-glow">
-                
-                <div class="flex items-center justify-between rounded-[1.4rem] border border-white/10 bg-[#113a42] px-5 py-3.5 text-[0.95rem] text-white/84">
+          <div class="hero-sequence relative flex justify-center items-center h-[550px] w-full lg:justify-self-end"
+            style="animation-delay: 0.3s;">
+            <div class="relative animate-levitate w-full flex justify-center items-center">
+
+              <div id="float-card-1"
+                class="absolute -left-4 md:-left-12 top-1/4 z-20 rounded-2xl bg-white/95 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-civic-mist/50 transition-opacity duration-300">
+                <div class="flex items-center gap-3">
+                  <div class="bg-civic-coral/20 p-2 rounded-full text-civic-coral">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
                   <div>
-                    <p class="font-semibold text-white">CivicReports</p>
-                    <p>Flujo ciudadano + institucional</p>
+                    <p class="text-sm font-bold text-civic-deep">Evidencia con GPS</p>
+                    <p class="text-xs text-civic-slate">Juigalpa, Nicaragua</p>
                   </div>
-                  <span class="rounded-full bg-civic-amber/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-civic-deep">Beta</span>
                 </div>
+              </div>
 
-                <div class="mt-4 grid items-stretch gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-                  
-                  <div class="rounded-[1.7rem] border border-white/10 bg-[#f5f0e5] p-3 flex flex-col justify-center">
-                    <div class="mx-auto w-full max-w-[220px] rounded-[2.5rem] border-[12px] border-[#0f1f23] bg-white p-2 shadow-float overflow-hidden flex flex-col relative h-[450px]">
-                      
-                      <div class="mb-3 flex items-center justify-between px-3 pt-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-civic-slate z-10">
-                        <span>Juigalpa</span>
-                        <span>06:42 PM</span>
+              <div id="float-card-2"
+                class="absolute -right-4 md:-right-8 bottom-1/4 z-20 rounded-2xl bg-civic-deep/95 backdrop-blur p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-white/10 transition-opacity duration-300 animate-levitate-delayed">
+                <div class="flex items-center gap-3">
+                  <div class="bg-civic-amber/20 p-2 rounded-full text-civic-amber">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm font-bold text-white">1,243 Firmas</p>
+                    <p class="text-xs text-white/70">Apoyo comunitario</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="morph-device"
+                class="relative overflow-hidden border-[#0f1f23] bg-[#1a2e35] shadow-float transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col"
+                style="width: 260px; height: 520px; border-width: 12px; border-radius: 2.5rem; max-width: 100%;">
+                <!-- PHONE: Heat Map -->
+                <div id="screen-phone" class="morph-screen-content absolute inset-0 w-full h-full">
+                  <div class="w-full h-full bg-[#1a2e35] relative overflow-hidden p-3 flex flex-col">
+                    <div class="bg-[#0d3a43] rounded-lg px-3 py-2 flex items-center justify-between mb-2">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-2 h-2 rounded-full bg-civic-coral"></div><span
+                          class="text-[9px] font-bold text-white tracking-wider uppercase">Mapa de Incidencias</span>
                       </div>
-                      
-                      <div class="phone-map flex-1 relative rounded-[1.8rem] border border-civic-deep/10 bg-[#eef5f4] overflow-hidden flex flex-col justify-between p-3">
-                        <div class="route-line"></div>
-                        <span class="report-dot left-[20%] top-[20%]"></span>
-                        <span class="report-dot secondary right-[20%] top-[45%]"></span>
-                        <span class="report-dot left-[40%] bottom-[30%]"></span>
-
-                        <div class="relative z-10 w-full rounded-2xl bg-white p-3.5 shadow-lg border border-civic-mist/50 mt-2">
-                          <div class="flex items-start justify-between gap-2">
-                            <div>
-                              <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-civic-coral mb-1">Reporte activo</p>
-                              <p class="text-[0.95rem] font-bold leading-tight text-civic-deep">Bache frente al mercado</p>
-                            </div>
-                            <span class="rounded-full bg-civic-mist px-2 py-0.5 text-[0.65rem] font-bold text-civic-ink shrink-0">GPS</span>
-                          </div>
-                          <div class="mt-3 h-14 rounded-xl bg-gradient-to-br from-civic-ink via-civic-deep to-[#274d56] p-1.5 overflow-hidden relative">
-                             <div class="absolute inset-1 rounded-lg border border-white/20 border-dashed bg-white/10 flex items-center justify-center">
-                                <i data-lucide="image" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
-                             </div>
-                          </div>
+                      <span class="text-[8px] text-white/60">Juigalpa</span>
+                    </div>
+                    <div class="flex-1 relative bg-[#162a30] rounded-lg overflow-hidden">
+                      <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" y1="25%" x2="100%" y2="25%" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                        <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(255,255,255,0.14)" stroke-width="2.5" />
+                        <line x1="0" y1="75%" x2="100%" y2="75%" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                        <line x1="30%" y1="0" x2="30%" y2="100%" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                        <line x1="65%" y1="0" x2="65%" y2="100%" stroke="rgba(255,255,255,0.14)" stroke-width="2.5" />
+                        <line x1="10%" y1="15%" x2="55%" y2="85%" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+                        <rect x="12%" y="30%" width="14%" height="18%" rx="2" fill="rgba(255,255,255,0.04)"
+                          stroke="rgba(255,255,255,0.06)" stroke-width="0.5" />
+                        <rect x="68%" y="55%" width="20%" height="15%" rx="2" fill="rgba(255,255,255,0.04)"
+                          stroke="rgba(255,255,255,0.06)" stroke-width="0.5" />
+                        <rect x="38%" y="10%" width="18%" height="12%" rx="2" fill="rgba(255,255,255,0.03)"
+                          stroke="rgba(255,255,255,0.05)" stroke-width="0.5" />
+                      </svg>
+                      <div class="heat-point heat-critical" style="left:28%;top:23%">
+                        <div class="heat-label">🚧 Bache</div>
+                      </div>
+                      <div class="heat-point heat-critical" style="left:58%;top:48%">
+                        <div class="heat-label">🕳️ Alcantarilla</div>
+                      </div>
+                      <div class="heat-point heat-moderate" style="left:42%;top:72%">
+                        <div class="heat-label">💡 Alumbrado</div>
+                      </div>
+                      <div class="heat-point heat-moderate" style="left:78%;top:32%">
+                        <div class="heat-label">🗑️ Basura</div>
+                      </div>
+                      <div class="heat-point heat-critical" style="left:18%;top:58%">
+                        <div class="heat-label">🚰 Drenaje</div>
+                      </div>
+                      <div class="heat-point heat-moderate" style="left:52%;top:18%">
+                        <div class="heat-label">🚦 Semáforo</div>
+                      </div>
+                    </div>
+                    <div class="mt-2 flex items-center justify-between">
+                      <div class="flex items-center gap-1">
+                        <div class="w-1.5 h-1.5 rounded-full bg-civic-coral animate-pulse"></div><span
+                          class="text-[8px] text-white/70 font-semibold" id="report-counter">23 reportes activos</span>
+                      </div>
+                      <div class="flex gap-1">
+                        <div class="w-4 h-4 rounded bg-white/10 flex items-center justify-center">
+                          <div class="w-2 h-2 rounded-sm bg-civic-coral/60"></div>
                         </div>
-
-                        <div class="relative z-10 w-full rounded-2xl bg-white p-3.5 shadow-lg border border-civic-mist/50 mb-2">
-                          <div class="flex flex-col gap-1">
-                              <p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-civic-slate">Respaldo social</p>
-                              <div class="flex items-end justify-between">
-                                <p class="text-[1.8rem] font-extrabold leading-none text-civic-deep tracking-tight">128</p>
-                                <p class="text-[0.8rem] font-semibold text-civic-slate mb-1">firmas</p>
-                              </div>
-                          </div>
-                          <div class="mt-3 h-2 rounded-full bg-civic-mist overflow-hidden">
-                            <div class="h-full w-[74%] rounded-full bg-civic-coral"></div>
-                          </div>
+                        <div class="w-4 h-4 rounded bg-white/10 flex items-center justify-center">
+                          <div class="w-2 h-2 rounded-sm bg-civic-amber/60"></div>
                         </div>
-                        
                       </div>
                     </div>
                   </div>
-
-                  <div class="flex flex-col gap-4">
-                    <div class="dark-surface flex h-full flex-col justify-center rounded-[1.6rem] border border-white/12 px-6 py-6 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                      <p class="text-[0.75rem] font-bold uppercase tracking-[0.25em] text-white/80 mb-6">Por qué funciona</p>
-                      <ul class="space-y-5 text-[0.95rem] leading-snug text-white/90">
-                        <li class="flex items-start gap-3">
-                          <span class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-amber"></span>
-                          <span>La evidencia multimedia evita que el reporte se pierda en un chat o una llamada sin rastro.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-coral"></span>
-                          <span>Las firmas digitales convierten malestar disperso en prioridad colectiva.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                          <span class="mt-1.5 inline-block h-2 w-2 shrink-0 rounded-full bg-civic-mist"></span>
-                          <span>El reporte llega con más contexto para clasificar y responder mejor.</span>
-                        </li>
-                      </ul>
+                </div>
+                <!-- TABLET: Form Auto-Submit -->
+                <div id="screen-tablet" class="morph-screen-content absolute inset-0 w-full h-full hidden">
+                  <div class="w-full h-full bg-[#f4efe3] relative overflow-hidden p-4 flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-civic-coral/20 flex items-center justify-center">
+                          <div class="w-2.5 h-2.5 rounded-full bg-civic-coral"></div>
+                        </div><span class="text-[10px] font-bold text-civic-deep">Nuevo Reporte</span>
+                      </div>
+                      <span class="text-[8px] text-civic-slate bg-white px-2 py-0.5 rounded-full">Paso 3/3</span>
+                    </div>
+                    <div id="tablet-form-content" class="flex-1 flex flex-col gap-2 overflow-hidden">
+                      <div class="bg-white rounded-lg p-2 border border-civic-deep/8"><span
+                          class="text-[7px] uppercase tracking-wider text-civic-slate font-bold">Tipo</span>
+                        <p class="text-[10px] font-bold text-civic-deep mt-0.5">🚧 Bache crítico</p>
+                      </div>
+                      <div class="bg-white rounded-lg p-2 border border-civic-deep/8"><span
+                          class="text-[7px] uppercase tracking-wider text-civic-slate font-bold">Ubicación</span>
+                        <p class="text-[10px] font-bold text-civic-deep mt-0.5">📍 B° Nuevo, Juigalpa</p>
+                      </div>
+                      <div class="bg-white rounded-lg p-2 border border-civic-deep/8"><span
+                          class="text-[7px] uppercase tracking-wider text-civic-slate font-bold">Descripción</span>
+                        <p class="text-[9px] text-civic-deep mt-0.5">Bache de 1.5m cerca del parque central</p>
+                      </div>
+                      <div class="flex gap-2">
+                        <div class="bg-civic-deep/8 rounded-lg w-12 h-9 flex items-center justify-center text-sm">📷
+                        </div>
+                        <div class="flex-1 flex flex-col justify-center"><span
+                            class="text-[7px] uppercase tracking-wider text-civic-slate font-bold">Evidencia</span><span
+                            class="text-[8px] text-civic-deep font-semibold">foto_bache.jpg</span></div>
+                      </div>
+                      <div class="mt-auto">
+                        <div id="tablet-submit-btn"
+                          class="bg-civic-deep text-white text-center py-2 rounded-lg text-[10px] font-bold cursor-pointer transition-all">
+                          Enviar Reporte ➤</div>
+                        <div id="tablet-progress"
+                          class="mt-1.5 h-1 bg-civic-deep/10 rounded-full overflow-hidden hidden">
+                          <div id="tablet-progress-bar" class="h-full bg-civic-coral rounded-full"
+                            style="width:0%;transition:width 1.2s ease"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="tablet-success"
+                      class="absolute inset-0 bg-[#f4efe3] flex flex-col items-center justify-center hidden">
+                      <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-2 text-2xl">✓
+                      </div>
+                      <p class="text-[12px] font-bold text-civic-deep">¡Reporte enviado!</p>
+                      <p class="text-[9px] text-civic-slate mt-0.5">Ticket #CR-2847</p>
                     </div>
                   </div>
-                  
+                </div>
+                <!-- DESKTOP: Kanban -->
+                <div id="screen-desktop" class="morph-screen-content absolute inset-0 w-full h-full hidden">
+                  <div class="w-full h-full bg-[#f0f4f5] relative overflow-hidden p-2.5 flex flex-col">
+                    <div
+                      class="flex items-center justify-between mb-2 bg-white rounded-lg px-2.5 py-1.5 border border-civic-deep/8">
+                      <div class="flex items-center gap-1.5">
+                        <div class="w-4 h-4 rounded bg-civic-deep flex items-center justify-center"><span
+                            class="text-[7px] text-white font-bold">CR</span></div><span
+                          class="text-[8px] font-bold text-civic-deep">Panel Institucional</span>
+                      </div>
+                      <span class="text-[6px] text-civic-slate">Alcaldía Juigalpa</span>
+                    </div>
+                    <div class="flex-1 flex gap-1.5 overflow-hidden">
+                      <div class="flex-1 flex flex-col min-w-0">
+                        <div class="flex items-center gap-1 mb-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-civic-coral"></div><span
+                            class="text-[6px] font-bold text-civic-deep uppercase tracking-wider">Nuevos</span><span
+                            class="text-[6px] bg-civic-coral/15 text-civic-coral px-1 rounded font-bold">3</span>
+                        </div>
+                        <div class="flex-1 flex flex-col gap-1" id="kanban-col-new">
+                          <div class="kanban-card bg-white rounded p-1.5 border border-civic-deep/8 shadow-sm"
+                            id="kanban-moving-card">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">🚧</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Bache Av. Central</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-red-100 text-red-600 px-1 rounded font-bold">Urgente</span><span
+                                class="text-[5px] text-civic-slate">847</span></div>
+                          </div>
+                          <div class="kanban-card bg-white rounded p-1.5 border border-civic-deep/8 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">💡</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Alumbrado B° Sur</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-amber-100 text-amber-600 px-1 rounded font-bold">Media</span><span
+                                class="text-[5px] text-civic-slate">312</span></div>
+                          </div>
+                          <div class="kanban-card bg-white rounded p-1.5 border border-civic-deep/8 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">🗑️</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Basura Mercado</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-amber-100 text-amber-600 px-1 rounded font-bold">Media</span><span
+                                class="text-[5px] text-civic-slate">156</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-1 flex flex-col min-w-0">
+                        <div class="flex items-center gap-1 mb-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-civic-amber"></div><span
+                            class="text-[6px] font-bold text-civic-deep uppercase tracking-wider">En proceso</span><span
+                            class="text-[6px] bg-civic-amber/15 text-[#b96d14] px-1 rounded font-bold">2</span>
+                        </div>
+                        <div class="flex-1 flex flex-col gap-1" id="kanban-col-process">
+                          <div class="kanban-card bg-white rounded p-1.5 border border-civic-amber/30 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">🔧</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Drenaje Col. 1</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-blue-100 text-blue-600 px-1 rounded font-bold">Asignado</span><span
+                                class="text-[5px] text-civic-slate">523</span></div>
+                          </div>
+                          <div class="kanban-card bg-white rounded p-1.5 border border-civic-amber/30 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">🚰</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Agua B° Norte</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-blue-100 text-blue-600 px-1 rounded font-bold">En obra</span><span
+                                class="text-[5px] text-civic-slate">1.2k</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex-1 flex flex-col min-w-0">
+                        <div class="flex items-center gap-1 mb-1">
+                          <div class="w-1.5 h-1.5 rounded-full bg-green-500"></div><span
+                            class="text-[6px] font-bold text-civic-deep uppercase tracking-wider">Resueltos</span><span
+                            class="text-[6px] bg-green-100 text-green-600 px-1 rounded font-bold">5</span>
+                        </div>
+                        <div class="flex-1 flex flex-col gap-1">
+                          <div class="kanban-card bg-white rounded p-1.5 border border-green-200 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">✅</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Semáforo Rotonda</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-green-100 text-green-600 px-1 rounded font-bold">Cerrado</span><span
+                                class="text-[5px] text-civic-slate">2.1k</span></div>
+                          </div>
+                          <div class="kanban-card bg-white rounded p-1.5 border border-green-200 shadow-sm">
+                            <div class="flex items-center gap-1 mb-0.5"><span class="text-[7px]">✅</span><span
+                                class="text-[6px] font-bold text-civic-deep truncate">Parque Central</span></div>
+                            <div class="flex items-center gap-1"><span
+                                class="text-[5px] bg-green-100 text-green-600 px-1 rounded font-bold">Cerrado</span><span
+                                class="text-[5px] text-civic-slate">1.8k</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -675,31 +1301,66 @@
               Hoy demasiadas denuncias nacen, circulan y se apagan sin dejar rastro útil.
             </h2>
             <p class="mt-5 max-w-lg text-lg leading-relaxed text-civic-slate">
-              Chats sueltos, llamadas informales y publicaciones aisladas hacen que una causa pierda fuerza antes de llegar a quien puede actuar.
+              Chats sueltos, llamadas informales y publicaciones aisladas hacen que una causa pierda fuerza antes de
+              llegar a quien puede actuar.
             </p>
+
+            <div class="mt-8 rounded-[1.8rem] bg-[#f9f6ef] border border-civic-deep/10 p-6 shadow-sm">
+              <h3 class="font-display text-lg font-bold text-civic-deep mb-2">📊 Participa: ¿Qué problema te afecta más
+                en tu comunidad?</h3>
+              <p class="text-sm text-civic-slate mb-4">Ayúdanos a priorizar funcionalidades.</p>
+
+              <div class="grid grid-cols-2 gap-3" id="poll-1-container">
+                <button
+                  class="poll-btn border-2 border-civic-deep/10 rounded-xl p-3 text-center text-sm font-semibold text-civic-deep hover:border-civic-coral transition"
+                  data-value="Baches">
+                  <i data-lucide="car-front" class="mx-auto mb-1 w-5 h-5 text-civic-slate"></i>Baches
+                </button>
+                <button
+                  class="poll-btn border-2 border-civic-deep/10 rounded-xl p-3 text-center text-sm font-semibold text-civic-deep hover:border-civic-coral transition"
+                  data-value="Alumbrado">
+                  <i data-lucide="lightbulb" class="mx-auto mb-1 w-5 h-5 text-civic-slate"></i>Alumbrado
+                </button>
+                <button
+                  class="poll-btn border-2 border-civic-deep/10 rounded-xl p-3 text-center text-sm font-semibold text-civic-deep hover:border-civic-coral transition"
+                  data-value="Drenaje">
+                  <i data-lucide="droplets" class="mx-auto mb-1 w-5 h-5 text-civic-slate"></i>Drenaje
+                </button>
+                <button
+                  class="poll-btn border-2 border-civic-deep/10 rounded-xl p-3 text-center text-sm font-semibold text-civic-deep hover:border-civic-coral transition"
+                  data-value="Otro">
+                  <i data-lucide="more-horizontal" class="mx-auto mb-1 w-5 h-5 text-civic-slate"></i>Otro
+                </button>
+              </div>
+              <p id="poll-1-feedback" class="mt-3 text-xs font-bold text-civic-coral hidden">¡Respuesta guardada para el
+                envío final!</p>
+            </div>
+
             <div class="mt-7 grid gap-4 sm:grid-cols-2">
-              <article class="float-card rounded-[1.6rem] border border-civic-deep/12 bg-[#fefcf7] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
+              <article
+                class="float-card rounded-[1.6rem] border border-civic-deep/12 bg-[#fefcf7] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
                 <p class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Sin rastro</p>
-                <p class="mt-2 text-base leading-8 text-civic-deep">Falta evidencia unificada, ubicación y un historial claro.</p>
+                <p class="mt-2 text-base leading-8 text-civic-deep">Falta evidencia unificada, ubicación y un historial
+                  claro.</p>
               </article>
-              <article class="float-card rounded-[1.6rem] border border-[#e2c58c] bg-[#fff2cf] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
+              <article
+                class="float-card rounded-[1.6rem] border border-[#e2c58c] bg-[#fff2cf] p-5 shadow-[0_20px_48px_rgba(11,36,42,0.1)]">
                 <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#b96d14]">Sin escala</p>
-                <p class="mt-2 text-base leading-8 text-civic-deep">La conversación rara vez sale del barrio o de la colonia.</p>
+                <p class="mt-2 text-base leading-8 text-civic-deep">La conversación rara vez sale del barrio o de la
+                  colonia.</p>
               </article>
             </div>
           </div>
 
-          <article class="media-panel media-panel-dark media-glint min-h-[420px] rounded-[2.4rem] shadow-float" data-reveal>
-            <img
-              class="media-motion"
+          <article class="media-panel media-panel-dark media-glint min-h-[420px] rounded-[2.4rem] shadow-float"
+            data-reveal>
+            <img class="media-motion"
               src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-              alt="Mujer consultando su teléfono en un espacio público"
-              loading="lazy"
-              decoding="async"
-            >
+              alt="Mujer consultando su teléfono en un espacio público" loading="lazy" decoding="async">
             <div class="media-content flex h-full flex-col justify-end p-7 sm:p-9">
               <span class="media-label">Del rumor al registro</span>
-              <h3 class="balanced mt-4 max-w-md font-display text-3xl font-bold leading-tight text-white sm:text-[2.15rem]">
+              <h3
+                class="balanced mt-4 max-w-md font-display text-3xl font-bold leading-tight text-white sm:text-[2.15rem]">
                 CivicReports convierte una queja dispersa en una evidencia visible y compartible.
               </h3>
               <p class="media-note mt-4 text-base leading-relaxed">
@@ -709,7 +1370,7 @@
           </article>
         </div>
 
-        <div class="mt-10" data-reveal>
+        <div id="solucion" class="section-anchor mt-10" data-reveal>
           <div class="mb-6 max-w-2xl">
             <p class="section-kicker text-civic-coral">Solución</p>
             <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
@@ -720,52 +1381,43 @@
           <div class="grid gap-6 lg:grid-cols-3">
             <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
               <div class="photo-strip">
-                <img
-                  class="media-motion"
+                <img class="media-motion"
                   src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                  alt="Personas usando sus teléfonos en un espacio público"
-                  loading="lazy"
-                  decoding="async"
-                >
+                  alt="Personas usando sus teléfonos en un espacio público" loading="lazy" decoding="async">
               </div>
               <div class="p-6">
                 <p class="section-kicker text-civic-coral">Visibilidad con evidencia</p>
                 <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">Más claro desde el primer vistazo</h3>
-                <p class="mt-3 text-base leading-relaxed text-civic-slate">Fotos, GPS y contexto vuelven el caso más fácil de entender y compartir.</p>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">Fotos, GPS y contexto vuelven el caso más
+                  fácil de entender y compartir.</p>
               </div>
             </article>
 
             <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
               <div class="photo-strip">
-                <img
-                  class="media-motion"
+                <img class="media-motion"
                   src="https://images.pexels.com/photos/8205060/pexels-photo-8205060.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                  alt="Persona firmando un documento"
-                  loading="lazy"
-                  decoding="async"
-                >
+                  alt="Persona firmando un documento" loading="lazy" decoding="async">
               </div>
               <div class="p-6">
                 <p class="section-kicker text-civic-coral">Respaldo medible</p>
                 <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">El apoyo se puede ver</h3>
-                <p class="mt-3 text-base leading-relaxed text-civic-slate">Las firmas digitales convierten interés disperso en respaldo visible.</p>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">Las firmas digitales convierten interés
+                  disperso en respaldo visible.</p>
               </div>
             </article>
 
             <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0">
               <div class="photo-strip">
-                <img
-                  class="media-motion"
+                <img class="media-motion"
                   src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                  alt="Fachada urbana que representa instituciones y ciudad"
-                  loading="lazy"
-                  decoding="async"
-                >
+                  alt="Fachada urbana que representa instituciones y ciudad" loading="lazy" decoding="async">
               </div>
               <div class="p-6">
                 <p class="section-kicker text-civic-coral">Ruta institucional</p>
                 <h3 class="mt-3 font-display text-2xl font-bold text-civic-deep">Más contexto para responder</h3>
-                <p class="mt-3 text-base leading-relaxed text-civic-slate">La denuncia llega mejor estructurada y con más claridad para clasificarla.</p>
+                <p class="mt-3 text-base leading-relaxed text-civic-slate">La denuncia llega mejor estructurada y con
+                  más claridad para clasificarla.</p>
               </div>
             </article>
           </div>
@@ -773,7 +1425,7 @@
       </div>
     </section>
 
-    <section id="flujo" class="section-anchor py-16 sm:py-18">
+    <section id="flujo" class="section-anchor py-16 sm:py-18 bg-[#f9f6ef]">
       <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
         <div class="max-w-3xl" data-reveal>
           <p class="section-kicker text-civic-coral">Cómo funciona</p>
@@ -782,15 +1434,11 @@
           </h2>
         </div>
         <div class="mt-10 grid gap-5 lg:grid-cols-3">
-          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+          <article class="float-card bg-white overflow-hidden rounded-[2rem] p-0 border border-civic-mist" data-reveal>
             <div class="photo-strip">
-              <img
-                class="media-motion"
+              <img class="media-motion"
                 src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                alt="Ciudadana usando su teléfono para registrar información"
-                loading="lazy"
-                decoding="async"
-              >
+                alt="Ciudadana usando su teléfono para registrar información" loading="lazy" decoding="async">
             </div>
             <div class="p-6 sm:p-7">
               <div class="flex items-center justify-between">
@@ -804,15 +1452,12 @@
             </div>
           </article>
 
-          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+          <article class="float-card bg-white overflow-hidden rounded-[2rem] p-0 border border-civic-mist" data-reveal>
             <div class="photo-strip">
-              <img
-                class="media-motion"
+              <img class="media-motion"
                 src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                alt="Grupo de personas usando sus teléfonos y participando digitalmente"
-                loading="lazy"
-                decoding="async"
-              >
+                alt="Grupo de personas usando sus teléfonos y participando digitalmente" loading="lazy"
+                decoding="async">
             </div>
             <div class="p-6 sm:p-7">
               <div class="flex items-center justify-between">
@@ -826,15 +1471,11 @@
             </div>
           </article>
 
-          <article class="float-card soft-panel overflow-hidden rounded-[2rem] p-0" data-reveal>
+          <article class="float-card bg-white overflow-hidden rounded-[2rem] p-0 border border-civic-mist" data-reveal>
             <div class="photo-strip">
-              <img
-                class="media-motion"
+              <img class="media-motion"
                 src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                alt="Edificio urbano que representa instituciones y gestión pública"
-                loading="lazy"
-                decoding="async"
-              >
+                alt="Edificio urbano que representa instituciones y gestión pública" loading="lazy" decoding="async">
             </div>
             <div class="p-6 sm:p-7">
               <div class="flex items-center justify-between">
@@ -848,21 +1489,161 @@
             </div>
           </article>
         </div>
+
+        <div class="mt-16 grid lg:grid-cols-2 gap-8" data-reveal>
+
+          <div class="bg-white rounded-[2.5rem] border border-civic-mist p-8 shadow-sm flex flex-col justify-between">
+            <div>
+              <p class="section-kicker text-civic-coral mb-2">Simulador 1</p>
+              <h3 class="font-display text-2xl font-bold text-civic-deep mb-3">Soltar Pin GPS</h3>
+              <p class="text-sm text-civic-slate mb-6">Haz clic sobre la calle dañada en la imagen para generar la
+                evidencia GPS.</p>
+            </div>
+
+            <div id="simulador-area"
+              class="relative w-full h-[220px] bg-gray-200 rounded-2xl overflow-hidden cursor-crosshair border-4 border-transparent hover:border-civic-coral transition-colors"
+              style="background-image: url('https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
+              <div class="absolute inset-0 bg-black/20 flex justify-center items-center pointer-events-none"
+                id="simulador-instruction">
+                <span class="bg-white/90 text-civic-deep text-sm font-bold px-4 py-2 rounded-full shadow-lg">Haz clic en
+                  un bache</span>
+              </div>
+            </div>
+            <div id="simulador-feedback"
+              class="hidden mt-4 bg-green-50 text-green-700 border border-green-200 rounded-xl p-3 font-semibold text-xs text-center transition-all">
+              ¡Excelente! Reporte geolocalizado.
+            </div>
+          </div>
+
+          <div
+            class="bg-white rounded-[2.5rem] border border-civic-mist p-8 shadow-sm flex flex-col justify-between relative">
+            <div>
+              <p class="section-kicker text-civic-coral mb-2">Simulador 2</p>
+              <h3 class="font-display text-2xl font-bold text-civic-deep mb-3">Envío Instantáneo</h3>
+              <p class="text-sm text-civic-slate mb-6">Experimenta lo rápido y sencillo que es mandar una queja a la
+                institución.</p>
+            </div>
+
+            <div class="relative w-full h-[220px] bg-[#f4efe3] rounded-2xl flex justify-center items-center p-4">
+
+              <div id="paper-plane-form"
+                class="bg-white p-5 rounded-xl shadow-lg w-full max-w-[240px] z-10 flex flex-col gap-3 transition-all duration-500 origin-center">
+                <div class="h-3 w-1/2 bg-civic-mist rounded-full mb-1"></div>
+
+                <div class="h-8 w-full bg-[#f9f6ef] border border-civic-mist rounded-lg flex items-center px-2">
+                  <div class="h-2 w-1/3 bg-civic-slate/30 rounded-full"></div>
+                </div>
+
+                <div class="h-14 w-full bg-[#f9f6ef] border border-civic-mist rounded-lg p-2 flex flex-col gap-1.5">
+                  <div class="h-2 w-3/4 bg-civic-slate/30 rounded-full"></div>
+                  <div class="h-2 w-1/2 bg-civic-slate/30 rounded-full"></div>
+                </div>
+
+                <button id="btn-fly"
+                  class="w-full bg-civic-deep text-white text-sm font-bold py-2.5 rounded-lg flex justify-center items-center gap-2 hover:bg-civic-coral transition-colors mt-1">
+                  Enviar Queja <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <div id="paper-plane-success"
+                class="absolute inset-0 flex flex-col justify-center items-center opacity-0 scale-50 pointer-events-none z-0">
+                <div class="w-14 h-14 bg-green-100 rounded-full flex justify-center items-center mb-2 shadow-sm">
+                  <i data-lucide="check" class="w-7 h-7 text-green-600"></i>
+                </div>
+                <p class="font-bold text-civic-deep text-center px-4">¡Reporte enviado correctamente!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ====== NUEVOS MINI-JUEGOS ====== -->
+        <div class="mt-10 grid lg:grid-cols-3 gap-8" data-reveal>
+
+          <!-- MINI-JUEGO 3: Rompecabezas -->
+          <div class="bg-white rounded-[2.5rem] border border-civic-mist p-8 shadow-sm flex flex-col">
+            <p class="section-kicker text-civic-coral mb-2">Mini-Juego 3</p>
+            <h3 class="font-display text-2xl font-bold text-civic-deep mb-3">🧩 Arma el Reporte</h3>
+            <p class="text-sm text-civic-slate mb-5">Ordena las piezas para completar un reporte ciudadano. Haz clic en
+              dos piezas para intercambiarlas.</p>
+            <div id="puzzle-container" class="puzzle-grid w-full max-w-[260px] mx-auto mb-4"></div>
+            <div id="puzzle-feedback" class="hidden text-center">
+              <div class="relative inline-block" id="puzzle-confetti-area">
+                <p class="text-sm font-bold text-green-600">🎉 ¡Reporte armado correctamente!</p>
+              </div>
+              <p class="text-xs text-civic-slate mt-1">Así de fácil es estructurar una denuncia con CivicReports</p>
+            </div>
+            <button id="puzzle-reset" class="mt-auto text-xs font-bold text-civic-coral hover:underline pt-3">↻
+              Desordenar de nuevo</button>
+          </div>
+
+          <!-- MINI-JUEGO 4: Encestar en VIP -->
+          <div class="bg-white rounded-[2.5rem] border border-civic-mist p-8 shadow-sm flex flex-col">
+            <p class="section-kicker text-civic-coral mb-2">Mini-Juego 4</p>
+            <h3 class="font-display text-2xl font-bold text-civic-deep mb-3">🏀 Encestar en VIP</h3>
+            <p class="text-sm text-civic-slate mb-5">Mantén presionado para cargar potencia y suelta para lanzar tu
+              reporte al buzón VIP de 3 días.</p>
+            <div id="vip-court"
+              class="vip-court w-full h-[200px] bg-gradient-to-b from-[#f0f4f5] to-[#e8eeef] rounded-2xl border border-civic-mist mb-3 relative">
+              <div class="vip-basket border-civic-amber bg-civic-amber/10 text-civic-deep" style="right:15px;top:20px;">
+                <span class="text-[14px] mb-0.5">🏆</span>
+                <span>VIP 3 días</span>
+              </div>
+              <div id="vip-report" class="vip-report bg-white border border-civic-mist" style="left:20px;bottom:20px;">
+                📄</div>
+            </div>
+            <div class="mb-2">
+              <div class="power-bar-track bg-gray-200 w-full">
+                <div id="vip-power-fill"
+                  class="power-bar-fill bg-gradient-to-r from-green-400 via-yellow-400 to-red-500" style="width:0%">
+                </div>
+              </div>
+            </div>
+            <button id="vip-launch-btn"
+              class="w-full bg-civic-deep text-white text-sm font-bold py-3 rounded-xl hover:bg-civic-coral transition-colors select-none">
+              Mantén presionado para cargar 💪
+            </button>
+            <div id="vip-feedback" class="hidden mt-3 text-center">
+              <p id="vip-feedback-text" class="text-sm font-bold"></p>
+            </div>
+          </div>
+
+          <!-- MINI-JUEGO 5: Ruleta de Impacto -->
+          <div class="bg-white rounded-[2.5rem] border border-civic-mist p-8 shadow-sm flex flex-col">
+            <p class="section-kicker text-civic-coral mb-2">Mini-Juego 5</p>
+            <h3 class="font-display text-2xl font-bold text-civic-deep mb-3">🎰 Ruleta de Impacto</h3>
+            <p class="text-sm text-civic-slate mb-5">Gira la ruleta y descubre datos reales sobre participación
+              ciudadana.</p>
+            <div class="roulette-container mx-auto mb-4" style="width:230px;height:230px;">
+              <div class="roulette-pointer"></div>
+              <canvas id="roulette-canvas" width="220" height="220" style="border-radius:50%;cursor:pointer;"></canvas>
+            </div>
+            <button id="roulette-spin-btn"
+              class="w-full bg-civic-deep text-white text-sm font-bold py-3 rounded-xl hover:bg-civic-coral transition-colors">
+              Girar Ruleta 🎯
+            </button>
+            <div id="roulette-result"
+              class="hidden mt-3 bg-civic-amber/10 border border-civic-amber/30 rounded-xl p-3 text-center">
+              <p id="roulette-result-text" class="text-sm font-bold text-civic-deep"></p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
     <section id="impacto" class="section-anchor relative overflow-hidden bg-civic-deep py-16 text-white sm:py-20">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(242,180,91,0.18),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(235,122,88,0.18),_transparent_28%)]"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(242,180,91,0.18),_transparent_28%),radial-gradient(circle_at_bottom_left,_rgba(235,122,88,0.18),_transparent_28%)]">
+      </div>
       <div class="relative mx-auto section-shell px-5 sm:px-6 lg:px-8">
         <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-          <article class="media-panel media-panel-dark media-glint min-h-[430px] rounded-[2.4rem] shadow-float" data-reveal>
-            <img
-              class="media-motion"
+          <article class="media-panel media-panel-dark media-glint min-h-[430px] rounded-[2.4rem] shadow-float"
+            data-reveal>
+            <img class="media-motion"
               src="https://images.pexels.com/photos/7688668/pexels-photo-7688668.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-              alt="Grupo de personas usando sus teléfonos en un entorno urbano"
-              loading="lazy"
-              decoding="async"
-            >
+              alt="Grupo de personas usando sus teléfonos en un entorno urbano" loading="lazy" decoding="async">
             <div class="media-content flex h-full flex-col justify-between p-7 sm:p-9">
               <div>
                 <p class="section-kicker text-civic-amber">Amplificación pagada</p>
@@ -870,12 +1651,30 @@
                   Si una causa merece salir del radio local, también puede ganar más visibilidad fuera de su zona.
                 </h2>
                 <p class="mt-4 max-w-lg text-lg leading-relaxed text-white/92">
-                  La idea no es comprar prioridad. Es conseguir más alcance social, conversación y firmas alrededor de una causa legítima.
+                  La idea no es comprar prioridad. Es conseguir más alcance social, conversación y firmas alrededor de
+                  una causa legítima.
                 </p>
+
+                <div class="mt-8 rounded-[1.5rem] bg-white/10 backdrop-blur border border-white/20 p-5">
+                  <p class="text-sm font-bold mb-3">💡 Reflexión: ¿Aportarías una pequeña cuota para promover un
+                    problema urgente y que toda la ciudad lo vea?</p>
+                  <div class="flex flex-col sm:flex-row gap-3" id="poll-2-container">
+                    <button
+                      class="poll-btn-2 w-full text-sm rounded-full border border-white/30 py-2.5 font-semibold hover:bg-civic-amber hover:text-civic-deep transition"
+                      data-value="Sí, lo pagaría">Sí, lo promovería</button>
+                    <button
+                      class="poll-btn-2 w-full text-sm rounded-full border border-white/30 py-2.5 font-semibold hover:bg-white/20 transition"
+                      data-value="Tal vez no">Tal vez no</button>
+                  </div>
+                  <p id="poll-2-feedback" class="mt-3 text-xs font-bold text-civic-amber hidden">Interesante
+                    perspectiva. La guardamos.</p>
+                </div>
+
               </div>
               <div class="story-metric mt-8 max-w-sm px-5 py-4">
                 <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/66">Más alcance, misma ética</p>
-                <p class="mt-2 text-base leading-relaxed text-white/92">La difusión empuja la conversación, pero no sustituye la evaluación institucional.</p>
+                <p class="mt-2 text-base leading-relaxed text-white/92">La difusión empuja la conversación, pero no
+                  sustituye la evaluación institucional.</p>
               </div>
             </div>
           </article>
@@ -884,29 +1683,34 @@
             <div class="dark-surface rounded-[2rem] p-6">
               <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/62">Qué sí hace</p>
               <ul class="mt-4 space-y-3 text-base leading-7 text-white/86">
-                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Extiende el alcance de una denuncia a públicos de otras zonas.</li>
-                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Ayuda a reunir más firmas y respaldo alrededor de una causa legítima.</li>
-                <li class="flex gap-3"><span class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Mejora la difusión sin romper la trazabilidad del reporte original.</li>
+                <li class="flex gap-3"><span
+                    class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Extiende el alcance de una
+                  denuncia a públicos de otras zonas.</li>
+                <li class="flex gap-3"><span
+                    class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Ayuda a reunir más firmas y
+                  respaldo alrededor de una causa legítima.</li>
+                <li class="flex gap-3"><span
+                    class="mt-2 inline-block h-2.5 w-2.5 rounded-full bg-civic-amber"></span>Mejora la difusión sin
+                  romper la trazabilidad del reporte original.</li>
               </ul>
             </div>
             <div class="rounded-[2rem] border border-white/10 bg-civic-sand px-6 py-5 text-civic-deep">
               <p class="text-sm font-semibold uppercase tracking-[0.18em] text-civic-coral">Qué no hace</p>
               <p class="mt-3 text-base leading-7 text-civic-slate">
-                No compra prioridad pública, no altera criterios técnicos y no reemplaza la responsabilidad de clasificar y responder.
+                No compra prioridad pública, no altera criterios técnicos y no reemplaza la responsabilidad de
+                clasificar y responder.
               </p>
             </div>
           </div>
         </div>
 
         <div class="mt-10 grid gap-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch">
-          <article class="media-panel media-panel-sand min-h-[320px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.16)]" data-reveal>
-            <img
-              class="media-motion"
+          <article
+            class="media-panel media-panel-sand min-h-[320px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.16)]"
+            data-reveal>
+            <img class="media-motion"
               src="https://images.pexels.com/photos/21293979/pexels-photo-21293979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-              alt="Fachada urbana que representa una institución en la ciudad"
-              loading="lazy"
-              decoding="async"
-            >
+              alt="Fachada urbana que representa una institución en la ciudad" loading="lazy" decoding="async">
             <div class="media-content flex h-full flex-col justify-end p-7 sm:p-9">
               <p class="section-kicker text-civic-coral">Señales de confianza</p>
               <h2 class="balanced mt-4 max-w-md font-display text-3xl font-bold text-civic-deep sm:text-4xl">
@@ -916,84 +1720,145 @@
           </article>
 
           <div class="grid gap-4 sm:grid-cols-3" data-reveal>
-            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+            <article
+              class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
               <i data-lucide="university" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
               <h3 class="mt-4 text-xl font-semibold text-civic-deep">Origen real</h3>
-              <p class="mt-3 text-base leading-8 text-civic-deep">Nace desde Juigalpa como un caso visible y concreto.</p>
+              <p class="mt-3 text-base leading-8 text-civic-deep">Nace desde Juigalpa como un caso visible y concreto.
+              </p>
             </article>
-            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+            <article
+              class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
               <i data-lucide="shield-check" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
               <h3 class="mt-4 text-xl font-semibold text-civic-deep">Trazabilidad</h3>
-              <p class="mt-3 text-base leading-8 text-civic-deep">El reporte gana recorrido, evidencia y más claridad posterior.</p>
+              <p class="mt-3 text-base leading-8 text-civic-deep">El reporte gana recorrido, evidencia y más claridad
+                posterior.</p>
             </article>
-            <article class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
+            <article
+              class="float-card rounded-[1.8rem] border border-white/12 bg-[#f9f3e8] p-5 text-civic-deep shadow-[0_18px_42px_rgba(5,16,19,0.22)]">
               <i data-lucide="building" class="h-8 w-8 text-civic-coral" aria-hidden="true"></i>
               <h3 class="mt-4 text-xl font-semibold text-civic-deep">Dos audiencias</h3>
-              <p class="mt-3 text-base leading-8 text-civic-deep">Sirve tanto al ciudadano que reporta como a la institución que responde.</p>
+              <p class="mt-3 text-base leading-8 text-civic-deep">Sirve tanto al ciudadano que reporta como a la
+                institución que responde.</p>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-14 sm:py-16">
+    <section class="py-14 sm:py-16 bg-white">
       <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
         <div class="grid gap-6 lg:grid-cols-2">
-          <article class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-[#f9f6ef] shadow-[0_24px_60px_rgba(11,36,42,0.08)]" data-reveal>
+          <article
+            class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-[#f9f6ef] shadow-[0_24px_60px_rgba(11,36,42,0.08)]"
+            data-reveal>
             <div class="photo-strip" style="--photo-strip-height: 13rem;">
-              <img
-                class="media-motion"
+              <img class="media-motion"
                 src="https://images.pexels.com/photos/11030045/pexels-photo-11030045.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                alt="Ciudadana usando su teléfono"
-                loading="lazy"
-                decoding="async"
-              >
+                alt="Ciudadana usando su teléfono" loading="lazy" decoding="async">
             </div>
             <div class="p-7 sm:p-8">
               <p class="section-kicker text-civic-coral">Para ciudadanos</p>
-              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Reportar deja de sentirse inútil.</h2>
+              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Reportar deja de sentirse
+                inútil.</h2>
               <ul class="mt-5 space-y-4 text-base leading-7 text-civic-slate">
-                <li class="flex gap-3"><i data-lucide="camera" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Subes evidencia, ubicación y contexto en un solo flujo.</li>
-                <li class="flex gap-3"><i data-lucide="users" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Convocas firmas y respaldo alrededor de una misma causa.</li>
-                <li class="flex gap-3"><i data-lucide="bell-ring" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Ganas visibilidad y seguimiento con más claridad.</li>
+                <li class="flex gap-3"><i data-lucide="camera" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Subes evidencia, ubicación y contexto en un solo flujo.</li>
+                <li class="flex gap-3"><i data-lucide="users" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Convocas firmas y respaldo alrededor de una misma causa.</li>
+                <li class="flex gap-3"><i data-lucide="bell-ring" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Ganas visibilidad y seguimiento con más claridad.</li>
               </ul>
             </div>
           </article>
-          <article class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-white shadow-[0_24px_60px_rgba(11,36,42,0.08)]" data-reveal>
+          <article
+            class="float-card overflow-hidden rounded-[2.2rem] border border-civic-deep/10 bg-white shadow-[0_24px_60px_rgba(11,36,42,0.08)]"
+            data-reveal>
             <div class="photo-strip" style="--photo-strip-height: 13rem;">
-              <img
-                class="media-motion"
+              <img class="media-motion"
                 src="https://images.pexels.com/photos/8205060/pexels-photo-8205060.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-                alt="Documento siendo firmado, como referencia a gestión y trazabilidad"
-                loading="lazy"
-                decoding="async"
-              >
+                alt="Documento siendo firmado, como referencia a gestión y trazabilidad" loading="lazy"
+                decoding="async">
             </div>
             <div class="p-7 sm:p-8">
               <p class="section-kicker text-civic-coral">Para instituciones</p>
-              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Gestionar mejor empieza con recibir mejor información.</h2>
+              <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep">Gestionar mejor empieza con
+                recibir mejor información.</h2>
               <ul class="mt-5 space-y-4 text-base leading-7 text-civic-slate">
-                <li class="flex gap-3"><i data-lucide="map" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Recibes incidencias con evidencia geolocalizada desde el inicio.</li>
-                <li class="flex gap-3"><i data-lucide="bar-chart-3" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Identificas prioridades con más visibilidad y trazabilidad.</li>
-                <li class="flex gap-3"><i data-lucide="kanban-square" class="mt-1 h-5 w-5 shrink-0 text-civic-coral" aria-hidden="true"></i>Abres la puerta a flujos posteriores más ordenados.</li>
+                <li class="flex gap-3"><i data-lucide="map" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Recibes incidencias con evidencia geolocalizada desde el inicio.</li>
+                <li class="flex gap-3"><i data-lucide="bar-chart-3" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Identificas prioridades con más visibilidad y trazabilidad.</li>
+                <li class="flex gap-3"><i data-lucide="kanban-square" class="mt-1 h-5 w-5 shrink-0 text-civic-coral"
+                    aria-hidden="true"></i>Abres la puerta a flujos posteriores más ordenados.</li>
               </ul>
+
+              <div class="mt-8 pt-6 border-t border-civic-mist">
+                <p class="text-sm font-bold text-civic-deep mb-4">⏱️ Expectativa Ciudadana: ¿Cuánto consideras un tiempo
+                  aceptable para reparar un bache crítico?</p>
+                <input type="range" min="1" max="15" value="7" class="w-full" id="time-slider"
+                  oninput="document.getElementById('slider-value').innerText = this.value + (this.value == 1 ? ' día' : ' días')">
+                <div class="flex justify-between text-xs text-civic-slate mt-2 font-bold">
+                  <span>1 día</span>
+                  <span id="slider-value" class="text-civic-coral text-sm">7 días</span>
+                  <span>15+ días</span>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section-anchor py-16 sm:py-18">
+    <section id="equipo" class="pt-12 pb-8 sm:pt-14 sm:pb-10 bg-civic-sand section-anchor">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div class="max-w-2xl" data-reveal>
+            <p class="section-kicker text-civic-coral">Equipo</p>
+            <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+              Un proyecto impulsado desde Ingeniería en Sistemas de Información con visión social y técnica.
+            </h2>
+            <p class="mt-4 text-lg leading-relaxed text-civic-slate">
+              CivicReports se presenta como una propuesta nacida desde CUR-Chontales, UNAN-Managua, con un enfoque claro
+              en infraestructura pública, participación ciudadana y gestión más visible.
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3" data-reveal>
+            <article
+              class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5 shadow-sm hover:border-civic-coral transition-colors">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Product Owner</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Iliana Vanessa Cabrera</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Sostiene la visión del producto y valida su
+                sentido social.</p>
+            </article>
+            <article
+              class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5 shadow-sm hover:border-civic-coral transition-colors">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Scrum Master</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Derling Dariel Cruz</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Coordina la ejecución técnica y la estructura
+                backend del proyecto.</p>
+            </article>
+            <article
+              class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5 shadow-sm hover:border-civic-coral transition-colors">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">UX / UI</p>
+              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Evertz David López Torrez</h3>
+              <p class="mt-2 text-base leading-relaxed text-civic-slate">Da forma visual a la experiencia y a la
+                identidad de CivicReports.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-anchor py-16 sm:py-18 bg-white">
       <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
         <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
-          <article class="media-panel media-panel-light min-h-[520px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.12)]" data-reveal>
-            <img
-              class="media-motion"
+          <article
+            class="media-panel media-panel-light min-h-[520px] rounded-[2.4rem] shadow-[0_18px_50px_rgba(7,29,34,0.12)]"
+            data-reveal>
+            <img class="media-motion"
               src="https://images.pexels.com/photos/28656526/pexels-photo-28656526.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1600"
-              alt="Ciudadanos usando sus teléfonos en un parque"
-              loading="lazy"
-              decoding="async"
-            >
+              alt="Ciudadanos usando sus teléfonos en un parque" loading="lazy" decoding="async">
             <div class="media-content flex h-full flex-col justify-between p-7 sm:p-8">
               <div>
                 <p class="section-kicker text-civic-coral">FAQ</p>
@@ -1002,9 +1867,15 @@
                 </h2>
               </div>
               <div class="space-y-3">
-                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Privacidad y evidencia</p>
-                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Firmas y visibilidad</p>
-                <p class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">Escala y respuesta</p>
+                <p
+                  class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">
+                  Privacidad y evidencia</p>
+                <p
+                  class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">
+                  Firmas y visibilidad</p>
+                <p
+                  class="w-fit rounded-full border border-civic-deep/10 bg-white/82 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-civic-slate">
+                  Escala y respuesta</p>
               </div>
             </div>
           </article>
@@ -1015,75 +1886,48 @@
                 <span class="text-lg font-semibold text-civic-deep">¿CivicReports sustituye a la institución?</span>
                 <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
               </summary>
-              <p class="mt-4 text-base leading-7 text-civic-slate">No. Mejora la comunicación y el seguimiento, pero la respuesta sigue siendo responsabilidad de la entidad competente.</p>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Mejora la comunicación y el seguimiento, pero la
+                respuesta sigue siendo responsabilidad de la entidad competente.</p>
             </details>
             <details>
               <summary class="flex items-start justify-between gap-4">
-                <span class="text-lg font-semibold text-civic-deep">¿Las firmas digitales reemplazan la evaluación técnica?</span>
+                <span class="text-lg font-semibold text-civic-deep">¿Las firmas digitales reemplazan la evaluación
+                  técnica?</span>
                 <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
               </summary>
-              <p class="mt-4 text-base leading-7 text-civic-slate">No. Ayudan a dimensionar respaldo y visibilidad, pero no sustituyen criterios técnicos ni operativos.</p>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Ayudan a dimensionar respaldo y visibilidad, pero
+                no sustituyen criterios técnicos ni operativos.</p>
             </details>
             <details>
               <summary class="flex items-start justify-between gap-4">
                 <span class="text-lg font-semibold text-civic-deep">¿La publicidad pagada compra prioridad?</span>
                 <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
               </summary>
-              <p class="mt-4 text-base leading-7 text-civic-slate">No. Solo amplifica la difusión de una causa y atrae apoyo fuera de la zona local.</p>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Solo amplifica la difusión de una causa y atrae
+                apoyo fuera de la zona local.</p>
             </details>
             <details>
               <summary class="flex items-start justify-between gap-4">
                 <span class="text-lg font-semibold text-civic-deep">¿El proyecto se limita a Juigalpa?</span>
                 <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
               </summary>
-              <p class="mt-4 text-base leading-7 text-civic-slate">No. Juigalpa funciona como punto de partida, pero la visión está pensada para más ciudades de Nicaragua.</p>
+              <p class="mt-4 text-base leading-7 text-civic-slate">No. Juigalpa funciona como punto de partida, pero la
+                visión está pensada para más ciudades de Nicaragua.</p>
             </details>
             <details>
               <summary class="flex items-start justify-between gap-4">
                 <span class="text-lg font-semibold text-civic-deep">¿Ya está enviando datos reales esta landing?</span>
                 <span class="faq-indicator text-2xl font-light text-civic-coral">+</span>
               </summary>
-              <p class="mt-4 text-base leading-7 text-civic-slate">Todavía no. Esta versión deja listo el flujo visual para conectarlo después a backend, CRM o Supabase.</p>
+              <p class="mt-4 text-base leading-7 text-civic-slate">Todavía no. Esta versión deja listo el flujo visual
+                para conectarlo después a backend, CRM o Supabase.</p>
             </details>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="pt-12 pb-8 sm:pt-14 sm:pb-10">
-      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
-        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div class="max-w-2xl" data-reveal>
-            <p class="section-kicker text-civic-coral">Equipo</p>
-            <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
-            Un proyecto impulsado desde Ingeniería en Sistemas de Información con visión social y técnica.
-            </h2>
-            <p class="mt-4 text-lg leading-relaxed text-civic-slate">
-              CivicReports se presenta como una propuesta nacida desde CUR-Chontales, UNAN-Managua, con un enfoque claro en infraestructura pública, participación ciudadana y gestión más visible.
-            </p>
-          </div>
-          <div class="grid gap-4 sm:grid-cols-3" data-reveal>
-            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Product Owner</p>
-              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Iliana Vanessa Cabrera</h3>
-              <p class="mt-2 text-base leading-relaxed text-civic-slate">Sostiene la visión del producto y valida su sentido social.</p>
-            </article>
-            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">Scrum Master</p>
-              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Derling Dariel Cruz</h3>
-              <p class="mt-2 text-base leading-relaxed text-civic-slate">Coordina la ejecución técnica y la estructura backend del proyecto.</p>
-            </article>
-            <article class="rounded-[1.7rem] border border-civic-deep/10 bg-white/78 p-5">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-civic-coral">UX / UI</p>
-              <h3 class="mt-3 font-display text-xl font-bold text-civic-deep">Evertz David López Torrez</h3>
-              <p class="mt-2 text-base leading-relaxed text-civic-slate">Da forma visual a la experiencia y a la identidad de CivicReports.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="conversion" class="section-anchor pb-20 pt-10 sm:pb-24 sm:pt-12">
+    <section id="conversion" class="section-anchor pb-20 pt-10 sm:pb-24 sm:pt-12 bg-[#f9f6ef]">
       <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
         <div class="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
           <div class="rounded-[2.2rem] bg-[#0a2930] px-6 py-8 text-white shadow-float sm:px-8" data-reveal>
@@ -1105,66 +1949,105 @@
             <div class="mt-6 rounded-[1.8rem] border border-white/10 bg-[#123842] p-5">
               <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/66">Qué te llevas</p>
               <ul class="mt-4 space-y-3 text-base leading-relaxed text-white/84">
-                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Prioridad para conocer la beta y sus próximas iteraciones.</li>
-                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Comunicación clara sobre enfoque ciudadano o institucional según tu interés.</li>
-                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber" aria-hidden="true"></i>Un flujo listo para conectarse luego a Supabase, CRM o correo automatizado.</li>
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber"
+                    aria-hidden="true"></i>Prioridad para conocer la beta y sus próximas iteraciones.</li>
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber"
+                    aria-hidden="true"></i>Comunicación clara sobre enfoque ciudadano o institucional.</li>
+                <li class="flex gap-3"><i data-lucide="check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-civic-amber"
+                    aria-hidden="true"></i>Tus respuestas sobre infraestructura aportarán al modelo de datos.</li>
               </ul>
             </div>
           </div>
 
-          <div class="rounded-[2.2rem] border border-civic-deep/10 bg-white p-6 shadow-[0_26px_70px_rgba(11,36,42,0.1)] sm:p-8" data-reveal>
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="text-sm font-semibold uppercase tracking-[0.2em] text-civic-coral">Formulario</span>
-              <span id="interest-chip" class="interest-chip inline-flex items-center gap-2 rounded-full border border-civic-deep/12 bg-civic-mist px-3 py-1.5 text-sm font-semibold text-civic-deep">
-                <span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>
-                Ruta ciudadana
-              </span>
+          <div
+            class="rounded-[2.2rem] border border-civic-deep/10 bg-white p-6 shadow-[0_26px_70px_rgba(11,36,42,0.1)] sm:p-8"
+            data-reveal>
+            <div class="flex flex-wrap items-center gap-3 mb-8">
+              <span class="text-sm font-semibold uppercase tracking-[0.2em] text-civic-coral">Formulario de
+                Registro</span>
             </div>
 
-            <form id="lead-form" class="mt-8 space-y-5" novalidate>
-              <div class="grid gap-5 sm:grid-cols-2">
-                <label class="block">
-                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Nombre</span>
-                  <input id="name" name="name" type="text" autocomplete="name" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Tu nombre completo">
-                </label>
-                <label class="block">
-                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Correo</span>
-                  <input id="email" name="email" type="email" autocomplete="email" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="tunombre@correo.com">
-                </label>
+            <form id="lead-form" class="space-y-6" novalidate>
+
+              <div>
+                <p class="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">¿Cómo deseas
+                  participar?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label class="cursor-pointer relative">
+                    <input type="radio" name="interest" value="Ciudadano" class="radio-card-input hidden peer" checked>
+                    <div
+                      class="radio-card-body border-2 border-civic-mist rounded-2xl p-4 transition peer-hover:border-civic-coral/50">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-lg text-civic-deep">Como Ciudadano</span>
+                        <i data-lucide="user" class="radio-icon text-civic-slate w-5 h-5 transition"></i>
+                      </div>
+                      <p class="text-xs text-civic-slate">Quiero reportar incidencias y apoyar causas.</p>
+                    </div>
+                  </label>
+
+                  <label class="cursor-pointer relative">
+                    <input type="radio" name="interest" value="Institución" class="radio-card-input hidden peer">
+                    <div
+                      class="radio-card-body border-2 border-civic-mist rounded-2xl p-4 transition peer-hover:border-civic-coral/50">
+                      <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-lg text-civic-deep">Como Institución</span>
+                        <i data-lucide="building-2" class="radio-icon text-civic-slate w-5 h-5 transition"></i>
+                      </div>
+                      <p class="text-xs text-civic-slate">Quiero gestionar reportes en el tablero Kanban.</p>
+                    </div>
+                  </label>
+                </div>
               </div>
 
               <div class="grid gap-5 sm:grid-cols-2">
                 <label class="block">
-                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Tipo de interés</span>
-                  <select id="interest" name="interest" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10">
-                    <option value="Ciudadano">Ciudadano</option>
-                    <option value="Institución">Institución</option>
-                  </select>
+                  <span
+                    class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Nombre</span>
+                  <input id="name" name="name" type="text" autocomplete="name"
+                    class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10"
+                    placeholder="Tu nombre completo">
                 </label>
                 <label class="block">
-                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Municipio o ciudad</span>
-                  <input id="city" name="city" type="text" autocomplete="address-level2" class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Juigalpa, Managua, León...">
+                  <span
+                    class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Correo</span>
+                  <input id="email" name="email" type="email" autocomplete="email"
+                    class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10"
+                    placeholder="tunombre@correo.com">
+                </label>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-1">
+                <label class="block">
+                  <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Municipio
+                    o ciudad</span>
+                  <input id="city" name="city" type="text" autocomplete="address-level2"
+                    class="w-full rounded-2xl border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10"
+                    placeholder="Juigalpa, Managua, León...">
                 </label>
               </div>
 
               <label class="block">
-                <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Mensaje opcional</span>
-                <textarea id="message" name="message" rows="5" class="w-full rounded-[1.6rem] border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10" placeholder="Cuéntanos qué te gustaría reportar, impulsar o coordinar."></textarea>
+                <span class="mb-2 block text-sm font-semibold uppercase tracking-[0.14em] text-civic-slate">Mensaje
+                  opcional</span>
+                <textarea id="message" name="message" rows="3"
+                  class="w-full rounded-[1.6rem] border border-civic-deep/12 bg-[#faf8f2] px-4 py-3 text-lg text-civic-deep outline-none transition focus-visible:border-civic-coral focus-visible:bg-white focus-visible:ring-4 focus-visible:ring-civic-coral/10"
+                  placeholder="Cuéntanos qué te gustaría reportar, impulsar o coordinar."></textarea>
               </label>
 
-              <div class="rounded-[1.4rem] border border-civic-deep/10 bg-[#f8f4ea] px-4 py-4 text-sm leading-relaxed text-civic-slate">
-                Esta demo valida el flujo visual y la intención de conversión. Todavía no guarda datos reales, pero el formulario queda preparado para conectarse a backend después.
-              </div>
-
-              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-deep px-6 py-3.5 text-base font-semibold text-white transition hover:bg-civic-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-coral focus-visible:ring-offset-2">
-                  Quiero entrar primero
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-2">
+                <button type="submit"
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-deep px-6 py-3.5 text-base font-semibold text-white transition hover:bg-civic-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-civic-coral focus-visible:ring-offset-2">
+                  Enviar Registro
                   <i data-lucide="send" class="h-5 w-5" aria-hidden="true"></i>
                 </button>
-                <p class="text-sm font-medium uppercase tracking-[0.14em] text-civic-slate">Cero spam. Solo interés bien encaminado.</p>
+                <p
+                  class="text-xs font-medium uppercase tracking-[0.14em] text-civic-slate max-w-[200px] text-center sm:text-right">
+                  Se anexarán tus respuestas de las encuestas y juegos.</p>
               </div>
 
-              <div id="form-status" class="status-box hidden rounded-[1.4rem] border px-4 py-4 text-base leading-relaxed" aria-live="polite"></div>
+              <div id="form-status"
+                class="status-box hidden rounded-[1.4rem] border px-4 py-4 text-base leading-relaxed"
+                aria-live="polite"></div>
             </form>
           </div>
         </div>
@@ -1173,7 +2056,8 @@
   </main>
 
   <footer class="border-t border-civic-deep/10 bg-white/70 py-6">
-    <div class="mx-auto flex max-w-[1160px] flex-col gap-2 px-5 text-sm text-civic-slate sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <div
+      class="mx-auto flex max-w-[1160px] flex-col gap-2 px-5 text-sm text-civic-slate sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
       <p>CivicReports nace en Juigalpa como una propuesta de acción cívica con evidencia, respaldo y seguimiento.</p>
       <p>Landing MVP estática lista para desplegar en Vercel.</p>
     </div>
@@ -1184,34 +2068,11 @@
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const header = document.querySelector("[data-header]");
     const reveals = document.querySelectorAll("[data-reveal]");
-    const interestSelect = document.getElementById("interest");
-    const interestChip = document.getElementById("interest-chip");
-    const formTitle = document.getElementById("form-title");
-    const formCopy = document.getElementById("form-copy");
-    const leadForm = document.getElementById("lead-form");
-    const formStatus = document.getElementById("form-status");
-    const interestButtons = document.querySelectorAll("[data-interest-target]");
 
     reveals.forEach((element, index) => {
       const step = index % 3;
       element.style.transitionDelay = `${step * 70}ms`;
     });
-
-    function setFormRoute(route) {
-      interestSelect.value = route;
-
-      if (route === "Institución") {
-        interestChip.innerHTML = '<span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>Ruta institucional';
-        interestChip.className = "interest-chip inline-flex items-center gap-2 rounded-full border border-civic-coral/15 bg-civic-coral/10 px-3 py-1.5 text-sm font-semibold text-civic-deep";
-        formTitle.textContent = "Solicita una demo institucional.";
-        formCopy.textContent = "Déjanos tus datos para presentarte el enfoque, el flujo institucional y la visión de despliegue del proyecto.";
-      } else {
-        interestChip.innerHTML = '<span class="inline-block h-2.5 w-2.5 rounded-full bg-civic-coral"></span>Ruta ciudadana';
-        interestChip.className = "interest-chip inline-flex items-center gap-2 rounded-full border border-civic-deep/12 bg-civic-mist px-3 py-1.5 text-sm font-semibold text-civic-deep";
-        formTitle.textContent = "Únete a la beta ciudadana.";
-        formCopy.textContent = "Déjanos tus datos y te dejamos listo para las primeras pruebas, feedback y próximos anuncios del proyecto.";
-      }
-    }
 
     function clearFieldState() {
       leadForm.querySelectorAll(".field-invalid").forEach((field) => field.classList.remove("field-invalid"));
@@ -1225,12 +2086,6 @@
       formStatus.dataset.state = state;
       formStatus.classList.remove("hidden");
     }
-
-    interestButtons.forEach((button) => {
-      button.addEventListener("click", () => setFormRoute(button.dataset.interestTarget));
-    });
-
-    interestSelect.addEventListener("change", (event) => setFormRoute(event.target.value));
 
     function updateHeaderState() {
       const currentScrollY = window.scrollY;
@@ -1262,12 +2117,596 @@
       reveals.forEach((element) => element.classList.add("is-visible"));
     }
 
-    leadForm.addEventListener("submit", (event) => {
+    // ----------------------------------------------------
+    // LÓGICA DEL MORPHING DEVICE CON PANTALLAS HTML
+    // ----------------------------------------------------
+    const morphDevice = document.getElementById('morph-device');
+    const floatCard1 = document.getElementById('float-card-1');
+    const floatCard2 = document.getElementById('float-card-2');
+    const screenPhone = document.getElementById('screen-phone');
+    const screenTablet = document.getElementById('screen-tablet');
+    const screenDesktop = document.getElementById('screen-desktop');
+
+    if (morphDevice) {
+      const screens = [screenPhone, screenTablet, screenDesktop];
+      const deviceStates = [
+        { type: 'mobile', width: '260px', height: '520px', radius: '2.5rem', border: '12px', bg: '#1a2e35', screen: 0, showFloaters: true },
+        { type: 'tablet', width: '540px', height: '400px', radius: '1.5rem', border: '14px', bg: '#f4efe3', screen: 1, showFloaters: false },
+        { type: 'desktop', width: '800px', height: '450px', radius: '0.8rem', border: '16px', bg: '#f0f4f5', screen: 2, showFloaters: false }
+      ];
+      let currentState = 0;
+      let tabletAnimTimeout = null;
+
+      function runTabletAnim() {
+        const btn = document.getElementById('tablet-submit-btn');
+        const prog = document.getElementById('tablet-progress');
+        const bar = document.getElementById('tablet-progress-bar');
+        const success = document.getElementById('tablet-success');
+        const formContent = document.getElementById('tablet-form-content');
+        if (!btn || !prog || !bar || !success || !formContent) return;
+        // Reset everything
+        btn.style.cssText = 'transition:all 0.4s ease;';
+        prog.classList.add('hidden'); bar.style.width = '0%';
+        success.classList.add('hidden');
+        success.style.cssText = 'opacity:0; transform:scale(0.8) translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease;';
+        formContent.style.cssText = 'transition:opacity 0.5s ease, transform 0.5s ease; opacity:1; transform:translateY(0);';
+        // Animate after 1.5s
+        tabletAnimTimeout = setTimeout(() => {
+          btn.style.transform = 'scale(0.93)'; btn.style.background = '#eb7a58';
+          btn.style.boxShadow = '0 4px 15px rgba(235,122,88,0.4)';
+          setTimeout(() => {
+            btn.style.transform = 'scale(1)'; btn.style.background = '#22c55e';
+            btn.style.boxShadow = '0 4px 15px rgba(34,197,94,0.3)';
+            btn.textContent = 'Enviando... ⏳';
+            prog.classList.remove('hidden');
+            setTimeout(() => { bar.style.width = '100%'; }, 80);
+            setTimeout(() => {
+              formContent.style.opacity = '0';
+              formContent.style.transform = 'translateY(-15px)';
+              setTimeout(() => {
+                success.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                  success.style.opacity = '1';
+                  success.style.transform = 'scale(1) translateY(0)';
+                });
+              }, 400);
+            }, 1300);
+          }, 400);
+        }, 1500);
+      }
+
+      function runKanbanAnim() {
+        const colNew = document.getElementById('kanban-col-new');
+        const colProcess = document.getElementById('kanban-col-process');
+        if (!colNew) return;
+        const cards = colNew.querySelectorAll('.kanban-card');
+        if (cards.length === 0) return;
+        const movingCard = cards[0];
+        // Step 1: Card slides out of 'Nuevos' at 1.5s
+        setTimeout(() => {
+          movingCard.style.transition = 'transform 0.6s ease, opacity 0.6s ease';
+          movingCard.style.transform = 'translateX(20px) scale(0.9)';
+          movingCard.style.opacity = '0.3';
+          // Step 2: Card appears in 'En proceso' at 2.3s
+          setTimeout(() => {
+            movingCard.style.display = 'none';
+            if (colProcess) {
+              const clone = movingCard.cloneNode(true);
+              clone.style.cssText = 'transform:translateX(-20px) scale(0.9); opacity:0; transition:transform 0.5s ease, opacity 0.5s ease;';
+              clone.querySelector('[class*="bg-red"]')?.classList.replace('bg-red-100', 'bg-blue-100');
+              clone.querySelector('[class*="text-red"]')?.classList.replace('text-red-600', 'text-blue-600');
+              const badge = clone.querySelector('[class*="bg-red"]') || clone.querySelector('span.text-\\[5px\\]');
+              if (clone.querySelector('.text-\\[5px\\].bg-red-100')) {
+                clone.querySelector('.text-\\[5px\\].bg-red-100').className = 'text-[5px] bg-blue-100 text-blue-600 px-1 rounded font-bold';
+                clone.querySelector('.text-\\[5px\\].bg-red-100') && (clone.querySelector('.text-\\[5px\\].bg-red-100').textContent = 'Asignado');
+              }
+              // Fix badge directly
+              const badges = clone.querySelectorAll('span');
+              badges.forEach(b => {
+                if (b.textContent.trim() === 'Urgente') {
+                  b.textContent = 'Asignado';
+                  b.className = 'text-[5px] bg-blue-100 text-blue-600 px-1 rounded font-bold';
+                }
+              });
+              clone.style.border = '1px solid rgba(242,180,91,0.3)';
+              colProcess.insertBefore(clone, colProcess.firstChild);
+              requestAnimationFrame(() => {
+                clone.style.transform = 'translateX(0) scale(1)';
+                clone.style.opacity = '1';
+              });
+              // Step 3: Remove clone and restore original after 2s
+              setTimeout(() => {
+                clone.style.opacity = '0';
+                clone.style.transform = 'translateX(20px) scale(0.9)';
+                setTimeout(() => {
+                  clone.remove();
+                  movingCard.style.cssText = '';
+                  movingCard.style.display = '';
+                }, 500);
+              }, 2000);
+            }
+          }, 700);
+        }, 1500);
+      }
+
+      function switchDevice() {
+        currentState = (currentState + 1) % deviceStates.length;
+        const state = deviceStates[currentState];
+        if (tabletAnimTimeout) clearTimeout(tabletAnimTimeout);
+
+        // Fade out all screens
+        screens.forEach(s => { if (s) s.style.opacity = '0'; });
+
+        if (state.showFloaters) {
+          floatCard1.classList.remove('opacity-0');
+          floatCard2.classList.remove('opacity-0');
+        } else {
+          floatCard1.classList.add('opacity-0');
+          floatCard2.classList.add('opacity-0');
+        }
+
+        setTimeout(() => {
+          morphDevice.style.width = state.width;
+          morphDevice.style.height = state.height;
+          morphDevice.style.borderRadius = state.radius;
+          morphDevice.style.borderWidth = state.border;
+          morphDevice.style.backgroundColor = state.bg;
+
+          screens.forEach((s, i) => {
+            if (!s) return;
+            if (i === state.screen) { s.classList.remove('hidden'); s.style.opacity = '1'; }
+            else { s.classList.add('hidden'); }
+          });
+
+          // Run screen-specific animations
+          if (state.type === 'tablet') runTabletAnim();
+          if (state.type === 'desktop') runKanbanAnim();
+        }, 500);
+      }
+
+      setInterval(switchDevice, 5500);
+    }
+
+    // ----------------------------------------------------
+    // LÓGICA DE MINI-JUEGOS (SIMULADOR Y AVIÓN)
+    // ----------------------------------------------------
+    let jugoSimulador = "No";
+    let jugoAvion = "No";
+
+    // Mini-Juego 1: Pin GPS
+    const simuladorArea = document.getElementById('simulador-area');
+    const simuladorInstruccion = document.getElementById('simulador-instruction');
+    const simuladorFeedback = document.getElementById('simulador-feedback');
+
+    if (simuladorArea) {
+      simuladorArea.addEventListener('click', function (e) {
+        const viejosPines = this.querySelectorAll('.custom-pin');
+        viejosPines.forEach(pin => pin.remove());
+
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const pin = document.createElement('div');
+        pin.className = 'custom-pin absolute animate-bounce-drop pointer-events-none';
+        pin.style.left = (x - 20) + 'px';
+        pin.style.top = (y - 40) + 'px';
+        pin.innerHTML = `
+                <div class="relative flex flex-col items-center">
+                    <div class="w-10 h-10 bg-civic-coral rounded-full shadow-lg flex items-center justify-center border-2 border-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                    </div>
+                    <div class="w-2 h-2 bg-civic-coral transform rotate-45 -mt-1"></div>
+                </div>
+            `;
+
+        this.appendChild(pin);
+
+        simuladorInstruccion.style.opacity = '0';
+        simuladorFeedback.classList.remove('hidden');
+        if (jugoSimulador !== "Sí") {
+          jugoSimulador = "Sí";
+          if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Simulador GPS' });
+        }
+      });
+    }
+
+    // Mini-Juego 2: Avión de Papel (Formulario Mágico)
+    const btnFly = document.getElementById('btn-fly');
+    const formPlane = document.getElementById('paper-plane-form');
+    const successPlane = document.getElementById('paper-plane-success');
+
+    if (btnFly) {
+      btnFly.addEventListener('click', () => {
+        // Reemplaza el formulario por el icono y le quita el fondo para hacerlo "avión"
+        formPlane.style.width = formPlane.offsetWidth + 'px'; // Fijar ancho para no saltar
+        formPlane.innerHTML = `<i data-lucide="send" class="w-12 h-12 text-civic-coral mx-auto transform -rotate-45"></i>`;
+        if (window.lucide) { window.lucide.createIcons(); }
+
+        // Transformar la caja en transparente
+        formPlane.className = "z-50 absolute transition-all duration-500 flex justify-center items-center pointer-events-none";
+
+        // Disparar la animación de despegue
+        requestAnimationFrame(() => {
+          formPlane.classList.add('animate-fly-away');
+
+          // Mostrar el check de éxito
+          setTimeout(() => {
+            successPlane.classList.remove('opacity-0', 'scale-50');
+            successPlane.classList.add('animate-pop-in');
+            if (jugoAvion !== "Sí") {
+              jugoAvion = "Sí";
+              if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Avión Mágico' });
+            }
+          }, 600);
+        });
+      });
+    }
+
+    // ----------------------------------------------------
+    // MINI-JUEGO 3: ROMPECABEZAS DEL REPORTE
+    // ----------------------------------------------------
+    let jugoPuzzle = "No";
+    const puzzlePieces = [
+      { label: '📍 GPS', color: '#eb7a58', correct: 0 },
+      { label: '📷 Foto', color: '#f2b45b', correct: 1 },
+      { label: '📝 Título', color: '#0d3a43', correct: 2 },
+      { label: '📋 Desc.', color: '#123f48', correct: 3 },
+      { label: '🏷️ Tipo', color: '#39535a', correct: 4 },
+      { label: '👤 Autor', color: '#8d6746', correct: 5 },
+      { label: '📊 Prior.', color: '#b96d14', correct: 6 },
+      { label: '✍️ Firma', color: '#50676c', correct: 7 },
+      { label: '📤 Enviar', color: '#22c55e', correct: 8 }
+    ];
+    let puzzleOrder = [];
+    let puzzleSelected = null;
+    const puzzleContainer = document.getElementById('puzzle-container');
+
+    function shuffleArray(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+      // Ensure it's not already solved
+      if (a.every((v, i) => v === i)) { [a[0], a[1]] = [a[1], a[0]]; }
+      return a;
+    }
+
+    function renderPuzzle(justSwapped) {
+      if (!puzzleContainer) return;
+      puzzleContainer.innerHTML = '';
+      document.getElementById('puzzle-feedback').classList.add('hidden');
+      puzzleOrder.forEach((pieceIdx, pos) => {
+        const p = puzzlePieces[pieceIdx];
+        const div = document.createElement('div');
+        div.className = 'puzzle-piece';
+        div.style.background = p.color + '22';
+        div.style.color = p.color;
+        div.style.position = 'relative';
+        div.innerHTML = `<div class="text-center"><span class="text-lg">${p.label.split(' ')[0]}</span><br><span class="text-[8px] font-bold">${p.label.split(' ')[1] || ''}</span></div>`;
+        const isCorrect = pieceIdx === pos;
+        if (isCorrect) {
+          div.classList.add('correct');
+          // If this piece was just placed correctly by a swap, animate it
+          if (justSwapped && justSwapped.includes(pos)) {
+            div.classList.add('just-locked');
+            setTimeout(() => div.classList.remove('just-locked'), 600);
+          }
+        }
+        if (!isCorrect) {
+          div.addEventListener('click', () => handlePuzzleClick(pos));
+        }
+        puzzleContainer.appendChild(div);
+      });
+    }
+
+    function handlePuzzleClick(pos) {
+      // Don't allow clicking locked (correct) pieces
+      if (puzzleOrder[pos] === pos) return;
+      const pieces = puzzleContainer.querySelectorAll('.puzzle-piece');
+      if (puzzleSelected === null) {
+        puzzleSelected = pos;
+        pieces[pos].classList.add('selected');
+      } else {
+        if (puzzleSelected !== pos) {
+          [puzzleOrder[puzzleSelected], puzzleOrder[pos]] = [puzzleOrder[pos], puzzleOrder[puzzleSelected]];
+          const swappedPositions = [puzzleSelected, pos];
+          puzzleSelected = null;
+          renderPuzzle(swappedPositions);
+          checkPuzzleWin();
+        } else {
+          pieces[pos].classList.remove('selected');
+          puzzleSelected = null;
+        }
+      }
+    }
+
+    function checkPuzzleWin() {
+      if (puzzleOrder.every((v, i) => v === i)) {
+        if (jugoPuzzle !== "Sí") {
+          jugoPuzzle = "Sí";
+          if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Rompecabezas' });
+        }
+        document.getElementById('puzzle-feedback').classList.remove('hidden');
+        // Confetti
+        const area = document.getElementById('puzzle-confetti-area');
+        const colors = ['#eb7a58', '#f2b45b', '#22c55e', '#0d3a43', '#f472b6'];
+        for (let i = 0; i < 20; i++) {
+          const c = document.createElement('div');
+          c.className = 'confetti-particle';
+          c.style.background = colors[i % colors.length];
+          c.style.left = Math.random() * 100 + '%';
+          c.style.top = '50%';
+          c.style.animationDelay = Math.random() * 0.5 + 's';
+          c.style.animationDuration = (0.8 + Math.random() * 0.6) + 's';
+          area.appendChild(c);
+          setTimeout(() => c.remove(), 2000);
+        }
+      }
+    }
+
+    if (puzzleContainer) {
+      puzzleOrder = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+      renderPuzzle();
+      document.getElementById('puzzle-reset').addEventListener('click', () => {
+        puzzleSelected = null;
+        puzzleOrder = shuffleArray([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+        renderPuzzle();
+      });
+    }
+
+    // ----------------------------------------------------
+    // MINI-JUEGO 4: ENCESTAR EN VIP
+    // ----------------------------------------------------
+    let jugoVIP = "No";
+    const vipBtn = document.getElementById('vip-launch-btn');
+    const vipReport = document.getElementById('vip-report');
+    const vipPowerFill = document.getElementById('vip-power-fill');
+    const vipFeedback = document.getElementById('vip-feedback');
+    const vipFeedbackText = document.getElementById('vip-feedback-text');
+    let vipPower = 0, vipCharging = false, vipInterval = null;
+
+    if (vipBtn && vipReport) {
+      function resetVIP() {
+        vipReport.style.transition = 'none';
+        vipReport.style.left = '20px';
+        vipReport.style.bottom = '20px';
+        vipReport.style.top = 'auto';
+        vipReport.style.right = 'auto';
+        vipReport.style.transform = 'none';
+        vipReport.style.opacity = '1';
+        vipPowerFill.style.width = '0%';
+        vipPower = 0;
+        vipFeedback.classList.add('hidden');
+        vipBtn.disabled = false;
+        vipBtn.textContent = 'Mantén presionado para cargar 💪';
+      }
+
+      function launchVIP() {
+        vipCharging = false;
+        clearInterval(vipInterval);
+        vipBtn.disabled = true;
+        const court = document.getElementById('vip-court');
+        const courtW = court.offsetWidth;
+        const courtH = court.offsetHeight;
+        // Basket is at: right:15px, top:20px, size 70x50
+        const basketCenterX = courtW - 15 - 35;
+        const basketCenterY = 20 + 25;
+        // Calculate landing position based on power
+        const powerFactor = vipPower / 100;
+        const landX = 20 + (courtW - 60) * powerFactor;
+        const landY = courtH - 20 - (courtH - 40) * powerFactor;
+        // Distance-based hit detection: check if landing is near basket center
+        const dx = landX - basketCenterX;
+        const dy = landY - basketCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const isHit = distance < 55;
+
+        // Animate throw with arc
+        vipReport.style.transition = 'all 0.8s cubic-bezier(0.22,1,0.36,1)';
+        vipReport.style.left = landX + 'px';
+        vipReport.style.bottom = 'auto';
+        vipReport.style.top = landY + 'px';
+        vipReport.style.transform = 'rotate(360deg) scale(0.8)';
+
+        setTimeout(() => {
+          vipFeedback.classList.remove('hidden');
+          if (isHit) {
+            jugoVIP = "Sí (Encestó)";
+            if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Encestar VIP - Éxito' });
+            vipFeedbackText.textContent = '🎉 ¡Encestaste! Tu reporte tiene alcance VIP por 3 días';
+            vipFeedbackText.className = 'text-sm font-bold text-green-600';
+            vipReport.style.opacity = '0.3';
+            vipReport.style.transform = 'rotate(360deg) scale(0.5)';
+          } else {
+            jugoVIP = "Sí (Falló)";
+            if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Encestar VIP - Fallo' });
+            vipFeedbackText.textContent = '😅 ¡Casi! Inténtalo de nuevo — Tu causa merece ser vista';
+            vipFeedbackText.className = 'text-sm font-bold text-civic-coral';
+          }
+          setTimeout(resetVIP, 2500);
+        }, 900);
+      }
+
+      vipBtn.addEventListener('mousedown', () => {
+        vipCharging = true; vipPower = 0;
+        vipBtn.textContent = '¡Cargando potencia! 🔥';
+        vipInterval = setInterval(() => {
+          if (!vipCharging) return;
+          vipPower = Math.min(100, vipPower + 2);
+          vipPowerFill.style.width = vipPower + '%';
+        }, 30);
+      });
+      vipBtn.addEventListener('mouseup', () => { if (vipCharging) launchVIP(); });
+      vipBtn.addEventListener('mouseleave', () => { if (vipCharging) launchVIP(); });
+      // Touch support
+      vipBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        vipCharging = true; vipPower = 0;
+        vipBtn.textContent = '¡Cargando potencia! 🔥';
+        vipInterval = setInterval(() => {
+          if (!vipCharging) return;
+          vipPower = Math.min(100, vipPower + 2);
+          vipPowerFill.style.width = vipPower + '%';
+        }, 30);
+      });
+      vipBtn.addEventListener('touchend', () => { if (vipCharging) launchVIP(); });
+    }
+
+    // ----------------------------------------------------
+    // MINI-JUEGO 5: RULETA DE IMPACTO CIUDADANO
+    // ----------------------------------------------------
+    let jugoRuleta = "No", ruletaResult = "";
+    const rouletteCanvas = document.getElementById('roulette-canvas');
+    const rouletteSpinBtn = document.getElementById('roulette-spin-btn');
+    const rouletteResultDiv = document.getElementById('roulette-result');
+    const rouletteResultText = document.getElementById('roulette-result-text');
+
+    const rouletteFacts = [
+      { text: '67% de los baches tardan +30 días sin reparar', color: '#eb7a58' },
+      { text: '1 reporte con GPS tiene 3× más atención', color: '#f2b45b' },
+      { text: 'Las firmas digitales duplican la respuesta', color: '#0d3a43' },
+      { text: 'Solo 12% de quejas en redes llegan a la institución', color: '#39535a' },
+      { text: 'Un reporte con foto recibe 5× más apoyo', color: '#8d6746' },
+      { text: 'La visibilidad VIP triplica las firmas en 48h', color: '#22c55e' }
+    ];
+    let rouletteAngle = 0, rouletteSpinning = false;
+    let revealedFacts = new Set();
+
+    function drawRoulette() {
+      if (!rouletteCanvas) return;
+      const ctx = rouletteCanvas.getContext('2d');
+      const cx = 110, cy = 110, r = 105;
+      const segAngle = (2 * Math.PI) / rouletteFacts.length;
+      ctx.clearRect(0, 0, 220, 220);
+      rouletteFacts.forEach((fact, i) => {
+        const start = segAngle * i + rouletteAngle;
+        const end = start + segAngle;
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, start, end);
+        ctx.closePath();
+        ctx.fillStyle = fact.color; ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2; ctx.stroke();
+        // Label
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(start + segAngle / 2);
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 9px sans-serif';
+        ctx.textAlign = 'center';
+        const words = fact.text.split(' ');
+        const line1 = words.slice(0, Math.ceil(words.length / 2)).join(' ');
+        const line2 = words.slice(Math.ceil(words.length / 2)).join(' ');
+        ctx.fillText(line1, r * 0.58, -4);
+        ctx.fillText(line2, r * 0.58, 8);
+        ctx.restore();
+      });
+      // Center circle
+      ctx.beginPath(); ctx.arc(cx, cy, 18, 0, 2 * Math.PI);
+      ctx.fillStyle = '#fff'; ctx.fill();
+      ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#0d3a43'; ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🎯', cx, cy);
+    }
+
+    if (rouletteCanvas && rouletteSpinBtn) {
+      drawRoulette();
+      rouletteSpinBtn.addEventListener('click', () => {
+        if (rouletteSpinning) return;
+        rouletteSpinning = true;
+        rouletteResultDiv.classList.add('hidden');
+        rouletteSpinBtn.disabled = true;
+        rouletteSpinBtn.textContent = 'Girando... 🌀';
+
+        // Find a segment that hasn't been revealed yet
+        if (revealedFacts.size >= rouletteFacts.length) revealedFacts.clear();
+        let targetSegment;
+        do { targetSegment = Math.floor(Math.random() * rouletteFacts.length); }
+        while (revealedFacts.has(targetSegment) && revealedFacts.size < rouletteFacts.length);
+        revealedFacts.add(targetSegment);
+
+        // Calculate target angle so pointer lands on that segment
+        const segAngle = (2 * Math.PI) / rouletteFacts.length;
+        const segCenter = segAngle * targetSegment + segAngle / 2;
+        const pointerAngle = 3 * Math.PI / 2;
+        const neededAngle = (pointerAngle - segCenter + 2 * Math.PI) % (2 * Math.PI);
+        const spins = 5 + Math.floor(Math.random() * 3);
+        const targetAngle = rouletteAngle + spins * 2 * Math.PI + (neededAngle - (rouletteAngle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+
+        const duration = 4000;
+        const startTime = Date.now();
+        const startAngle = rouletteAngle;
+
+        function animateSpin() {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          rouletteAngle = startAngle + (targetAngle - startAngle) * eased;
+          drawRoulette();
+          if (progress < 1) {
+            requestAnimationFrame(animateSpin);
+          } else {
+            rouletteSpinning = false;
+            rouletteSpinBtn.disabled = false;
+            const remaining = rouletteFacts.length - revealedFacts.size;
+            rouletteSpinBtn.textContent = remaining > 0 ? `Girar Ruleta 🎯 (${remaining} restantes)` : 'Girar Ruleta 🎯 (¡Reinicio!)';
+            ruletaResult = rouletteFacts[targetSegment].text;
+            jugoRuleta = "Sí";
+            if (typeof gtag === 'function') gtag('event', 'juego_completado', { event_category: 'engagement', event_label: 'Ruleta' });
+            rouletteResultText.textContent = '📊 ' + ruletaResult;
+            rouletteResultDiv.classList.remove('hidden');
+          }
+        }
+        requestAnimationFrame(animateSpin);
+      });
+    }
+
+    // ----------------------------------------------------
+    // LÓGICA DE MICRO-ENCUESTAS DISTRIBUIDAS
+    // ----------------------------------------------------
+    let surveyData = {
+      urgencia: "No respondió",
+      pagariaPub: "No respondió"
+    };
+
+    const poll1Btns = document.querySelectorAll('.poll-btn');
+    poll1Btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        poll1Btns.forEach(b => {
+          b.classList.remove('selected', 'bg-civic-coral', 'text-white');
+          b.classList.add('text-civic-deep');
+        });
+        btn.classList.add('selected', 'bg-civic-coral', 'text-white');
+        btn.classList.remove('text-civic-deep');
+        surveyData.urgencia = btn.getAttribute('data-value');
+        document.getElementById('poll-1-feedback').classList.remove('hidden');
+      });
+    });
+
+    const poll2Btns = document.querySelectorAll('.poll-btn-2');
+    poll2Btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        poll2Btns.forEach(b => {
+          b.classList.remove('bg-civic-amber', 'text-civic-deep', 'border-transparent');
+        });
+        btn.classList.add('bg-civic-amber', 'text-civic-deep', 'border-transparent');
+        surveyData.pagariaPub = btn.getAttribute('data-value');
+        document.getElementById('poll-2-feedback').classList.remove('hidden');
+      });
+    });
+
+    // ----------------------------------------------------
+    // LÓGICA DE ENVÍO A TELEGRAM
+    // ----------------------------------------------------
+    const leadForm = document.getElementById("lead-form");
+
+    leadForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       clearFieldState();
+
       const name = document.getElementById("name");
       const email = document.getElementById("email");
       const city = document.getElementById("city");
+      const interest = document.querySelector('input[name="interest"]:checked').value;
+      const message = document.getElementById("message").value.trim();
+      const sliderVal = document.getElementById("time-slider").value;
+
       const fields = [
         { element: name, isValid: name.value.trim().length >= 3 },
         { element: email, isValid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()) },
@@ -1277,18 +2716,82 @@
       const invalidFields = fields.filter((field) => !field.isValid);
       if (invalidFields.length > 0) {
         invalidFields.forEach((field) => field.element.classList.add("field-invalid"));
-        showStatus("Revisa los campos marcados. Necesitamos al menos nombre, correo válido y municipio o ciudad para dejar lista tu ruta.", "error");
+        showStatus("Revisa los campos marcados. Necesitamos al menos nombre, correo válido y municipio.", "error");
         invalidFields[0].element.focus();
         return;
       }
 
-      const routeLabel = interestSelect.value === "Institución" ? "institucional" : "ciudadana";
-      showStatus("Flujo validado. Esta demo ya deja preparada tu ruta " + routeLabel + " para conectarse a backend o CRM en el siguiente paso.", "success");
-      leadForm.reset();
-      setFormRoute("Ciudadano");
+      // !! ATENCIÓN: REEMPLAZA ESTOS VALORES CON LOS DE TU BOT DE TELEGRAM !!
+      const botToken = '8612596033:AAFXWa-TjVr81lfcmyHQrLdYOBUhh-yMaGo';
+      const chatId = '7509446666';
+
+      // Count completed mini-games
+      const miniGamesCompleted = [
+        jugoSimulador !== "No",
+        jugoAvion !== "No",
+        jugoPuzzle !== "No",
+        jugoVIP !== "No",
+        jugoRuleta !== "No"
+      ].filter(Boolean).length;
+      const miniGameEmojis = ['⚪', '⚪', '⚪', '⚪', '⚪'].map((e, i) => i < miniGamesCompleted ? '🟢' : '⚪').join('');
+
+      const telegramMessage = `
+🚨 *Nuevo Lead Beta en CivicReport* 🚨
+👤 *Nombre:* ${name.value.trim()}
+📧 *Correo:* ${email.value.trim()}
+🏙 *Ciudad:* ${city.value.trim()}
+🎯 *Rol Elegido:* ${interest}
+
+🎮 *Mini-Juegos Completados:* ${miniGamesCompleted}/5 ${miniGameEmojis}
+
+📊 *Resultados de Interactividad:*
+1️⃣ Problema principal: ${surveyData.urgencia}
+2️⃣ Pagaría Promoción: ${surveyData.pagariaPub}
+3️⃣ Tiempo de repuesta esperado: ${sliderVal} días
+📌 Jugó Simulador GPS: ${jugoSimulador}
+✈️ Jugó Avión Mágico: ${jugoAvion}
+🧩 Jugó Rompecabezas: ${jugoPuzzle}
+🏀 Jugó Encestar VIP: ${jugoVIP}
+🎰 Jugó Ruleta: ${jugoRuleta}${ruletaResult ? ' → ' + ruletaResult : ''}
+
+💬 *Mensaje Adicional:* ${message || 'Sin mensaje'}`;
+
+      const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+      const btn = leadForm.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+
+      try {
+        btn.innerHTML = 'Enviando... ⏳';
+        btn.disabled = true;
+
+        const response = await fetch(telegramUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: telegramMessage,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        if (response.ok) {
+          showStatus("¡Gracias! Hemos recibido tus datos y respuestas correctamente.", "success");
+          leadForm.reset();
+          document.querySelector('input[name="interest"][value="Ciudadano"]').checked = true;
+          document.getElementById('slider-value').innerText = '7 días';
+        } else {
+          throw new Error("Error en la respuesta de la API");
+        }
+
+      } catch (error) {
+        console.error(error);
+        showStatus("¡Los datos se validaron correctamente! (Falta ajustar tokens de Telegram en el script para el envío real).", "error");
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
     });
 
-    setFormRoute("Ciudadano");
     if (window.lucide) {
       window.lucide.createIcons();
       document.querySelectorAll("svg.lucide").forEach((icon) => {
@@ -1297,5 +2800,22 @@
       });
     }
   </script>
+
+  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <script>
+    window.botpressWebChat.init({
+      "composerPlaceholder": "Pregunta sobre CivicReport...",
+      "botConversationDescription": "Asistente Virtual del Proyecto",
+      "botId": "TU_BOT_ID",
+      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+      "messagingUrl": "https://messaging.botpress.cloud",
+      "clientId": "TU_CLIENT_ID",
+      "themeName": "prism",
+      "frontendVersion": "v1",
+      "theme": "prism",
+      "themeColor": "#eb7a58"
+    });
+  </script>
 </body>
+
 </html>
