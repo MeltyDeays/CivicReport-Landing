@@ -2075,13 +2075,18 @@
     });
 
     function clearFieldState() {
-      leadForm.querySelectorAll(".field-invalid").forEach((field) => field.classList.remove("field-invalid"));
+      const formElement = document.getElementById("lead-form");
+      const formStatus = document.getElementById("form-status");
+      if(!formElement || !formStatus) return;
+      formElement.querySelectorAll(".field-invalid").forEach((field) => field.classList.remove("field-invalid"));
       formStatus.classList.add("hidden");
       formStatus.textContent = "";
       formStatus.removeAttribute("data-state");
     }
 
     function showStatus(message, state) {
+      const formStatus = document.getElementById("form-status");
+      if(!formStatus) return;
       formStatus.textContent = message;
       formStatus.dataset.state = state;
       formStatus.classList.remove("hidden");
