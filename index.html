@@ -2813,20 +2813,8 @@
     }
   </script>
 
-  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
   <script>
-    window.botpressWebChat.init({
-      "composerPlaceholder": "Pregunta sobre CivicReport...",
-      "botConversationDescription": "Asistente Virtual del Proyecto",
-      "botId": "TU_BOT_ID",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "TU_CLIENT_ID",
-      "themeName": "prism",
-      "frontendVersion": "v1",
-      "theme": "prism",
-      "themeColor": "#eb7a58"
-    });
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="-QlL83YfQjPr1Q6HAeGbu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
   </script>
 </body>
 
