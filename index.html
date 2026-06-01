@@ -991,6 +991,7 @@
         <a href="#solucion" class="header-nav-link">Solución</a>
         <a href="#flujo" class="header-nav-link">Cómo funciona</a>
         <a href="#impacto" class="header-nav-link">Amplificación</a>
+        <a href="#calculadora" class="header-nav-link">Calculadora</a>
         <a href="#equipo" class="header-nav-link">Equipo</a>
         <a href="#faq" class="header-nav-link">FAQ</a>
         <a href="#conversion" class="header-nav-link text-civic-amber hover:text-[#f4c373] font-bold">Registro</a>
@@ -1813,6 +1814,141 @@
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculadora" class="section-anchor py-16 sm:py-20 bg-[#f9f6ef]">
+      <div class="mx-auto section-shell px-5 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-10" data-reveal>
+          <p class="section-kicker text-civic-coral">Diagnóstico municipal</p>
+          <h2 class="balanced mt-4 font-display text-3xl font-bold text-civic-deep sm:text-4xl">
+            Calculadora de Impacto Ciudadano
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-civic-slate">
+            ¿Cuánto le cuesta a tu municipio no tener un sistema digital de reportes? Ajusta los datos y descubre el costo oculto de la desconexión entre ciudadanos e instituciones.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2.4rem] shadow-float w-full overflow-hidden flex flex-col lg:flex-row border border-civic-deep/10" data-reveal>
+
+          <div class="w-full lg:w-5/12 bg-civic-deep p-7 sm:p-8 text-white">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-bold tracking-[0.15em] uppercase mb-6">
+              <span class="inline-block h-2 w-2 rounded-full bg-civic-coral animate-pulse"></span>
+              Tu municipio
+            </div>
+
+            <div class="space-y-7">
+              <div class="space-y-2">
+                <div class="flex justify-between items-end">
+                  <label class="text-sm font-semibold text-white/80">Reportes ciudadanos mensuales</label>
+                  <span id="calc-val-reportes" class="text-lg font-bold text-civic-amber">150</span>
+                </div>
+                <input type="range" id="calc-in-reportes" min="20" max="1000" step="10" value="150" class="w-full">
+                <p class="text-xs text-white/40">Baches, alumbrado, drenaje, basura, etc.</p>
+              </div>
+
+              <div class="space-y-2">
+                <div class="flex justify-between items-end">
+                  <label class="text-sm font-semibold text-white/80">% de reportes que se ignoran o pierden</label>
+                  <span id="calc-val-ignorados" class="text-lg font-bold text-civic-coral">65%</span>
+                </div>
+                <input type="range" id="calc-in-ignorados" min="10" max="95" step="5" value="65" class="w-full">
+                <p class="text-xs text-white/40">Sin evidencia, sin seguimiento, sin respuesta.</p>
+              </div>
+
+              <div class="space-y-2 pt-5 border-t border-white/10">
+                <div class="flex justify-between items-end">
+                  <label class="text-sm font-semibold text-white/80">Tiempo promedio de gestión manual (por reporte)</label>
+                  <span id="calc-val-tiempo" class="text-lg font-bold text-civic-coral">45 min</span>
+                </div>
+                <input type="range" id="calc-in-tiempo" min="10" max="120" step="5" value="45" class="w-full">
+                <p class="text-xs text-white/40">Recibir, clasificar, asignar y dar seguimiento en papel o llamadas.</p>
+              </div>
+
+              <div class="space-y-2 pt-5 border-t border-white/10">
+                <div class="flex justify-between items-end">
+                  <label class="text-sm font-semibold text-white/80">Costo promedio de reparación (C$)</label>
+                  <span id="calc-val-costo" class="text-lg font-bold text-civic-amber">C$ 8,000</span>
+                </div>
+                <input type="range" id="calc-in-costo" min="1000" max="50000" step="500" value="8000" class="w-full">
+                <p class="text-xs text-white/40">Costo unitario promedio de intervención (bache, luminaria, tubería).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-7/12 flex flex-col bg-white">
+            <div class="p-7 sm:p-8 pb-4">
+              <h3 class="text-sm font-bold text-civic-slate uppercase tracking-wider mb-2">Impacto mensual estimado</h3>
+            </div>
+
+            <div class="flex-grow px-7 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-5 content-start">
+              <div class="bg-[#fef2ee] rounded-2xl p-5 border border-civic-coral/15">
+                <h4 class="text-civic-coral font-semibold mb-1 flex items-center gap-2 text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+                  Reportes Ignorados
+                </h4>
+                <p class="text-xs text-civic-coral/70 mb-3">Denuncias que mueren sin respuesta ni registro.</p>
+                <div class="flex items-baseline gap-1 text-civic-coral">
+                  <span id="calc-out-ignorados" class="text-4xl font-black">98</span>
+                  <span class="text-sm font-bold">reportes/mes</span>
+                </div>
+              </div>
+
+              <div class="bg-[#fff8e1] rounded-2xl p-5 border border-civic-amber/20">
+                <h4 class="text-[#b96d14] font-semibold mb-1 flex items-center gap-2 text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Horas Burocracia
+                </h4>
+                <p class="text-xs text-[#b96d14]/60 mb-3">Tiempo del personal institucional en gestión manual.</p>
+                <div class="flex items-baseline gap-1 text-[#b96d14]">
+                  <span id="calc-out-horas" class="text-4xl font-black">113</span>
+                  <span class="text-sm font-bold">horas/mes</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-7 sm:px-8 mt-6 space-y-4">
+              <div>
+                <div class="flex justify-between text-sm font-semibold mb-1.5">
+                  <span class="text-civic-coral">Gestión Manual</span>
+                  <span class="text-civic-coral"><span id="calc-bar-manual-label">113</span> h/mes</span>
+                </div>
+                <div class="w-full bg-[#f4efe3] rounded-full h-5 overflow-hidden">
+                  <div id="calc-bar-manual" class="bg-gradient-to-r from-civic-coral to-[#f4a261] h-5 rounded-full transition-all duration-500 ease-out" style="width:100%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm font-semibold mb-1.5">
+                  <span class="text-emerald-600">Con CivicReports</span>
+                  <span class="text-emerald-600"><span id="calc-bar-digital-label">11</span> h/mes</span>
+                </div>
+                <div class="w-full bg-[#f4efe3] rounded-full h-5 overflow-hidden">
+                  <div id="calc-bar-digital" class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-5 rounded-full transition-all duration-500 ease-out" style="width:10%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-civic-deep mt-8 p-7 sm:p-8 text-center text-white">
+              <p class="text-white/60 font-medium mb-2 uppercase tracking-wider text-sm">Costo acumulado de la inacción al año</p>
+              <div class="flex justify-center items-baseline gap-2 text-civic-amber mb-1">
+                <span class="text-2xl font-bold">C$</span>
+                <span id="calc-out-costo-anual" class="text-5xl sm:text-6xl font-black" style="transition:all 0.3s ease">9,360,000</span>
+              </div>
+              <p class="text-civic-amber/80 font-medium mb-1 text-base">en reparaciones que se acumulan por falta de seguimiento</p>
+              <p class="text-sm text-white/50 mb-6">+ <span id="calc-out-horas-anual">1,350</span> horas de burocracia que tu equipo podría ahorrar</p>
+
+              <p class="text-sm text-white/70 mb-6 max-w-lg mx-auto">
+                CivicReports digitaliza el ciclo completo: reporte con evidencia → asignación → seguimiento → cierre. El ciudadano ve progreso, la institución responde más rápido.
+              </p>
+
+              <a href="#conversion"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-civic-amber px-8 py-4 text-base font-bold text-civic-deep transition hover:-translate-y-1 hover:bg-[#f4c373] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-civic-deep shadow-lg shadow-civic-amber/20">
+                Digitalizar mi Municipio
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2810,6 +2946,68 @@
         icon.setAttribute("aria-hidden", "true");
         icon.setAttribute("focusable", "false");
       });
+    }
+
+    // ----------------------------------------------------
+    // CALCULADORA DE IMPACTO CIUDADANO
+    // ----------------------------------------------------
+    const calcInReportes = document.getElementById('calc-in-reportes');
+    const calcInIgnorados = document.getElementById('calc-in-ignorados');
+    const calcInTiempo = document.getElementById('calc-in-tiempo');
+    const calcInCosto = document.getElementById('calc-in-costo');
+
+    const calcValReportes = document.getElementById('calc-val-reportes');
+    const calcValIgnorados = document.getElementById('calc-val-ignorados');
+    const calcValTiempo = document.getElementById('calc-val-tiempo');
+    const calcValCosto = document.getElementById('calc-val-costo');
+
+    const calcOutIgnorados = document.getElementById('calc-out-ignorados');
+    const calcOutHoras = document.getElementById('calc-out-horas');
+    const calcBarManual = document.getElementById('calc-bar-manual');
+    const calcBarDigital = document.getElementById('calc-bar-digital');
+    const calcBarManualLabel = document.getElementById('calc-bar-manual-label');
+    const calcBarDigitalLabel = document.getElementById('calc-bar-digital-label');
+    const calcOutCostoAnual = document.getElementById('calc-out-costo-anual');
+    const calcOutHorasAnual = document.getElementById('calc-out-horas-anual');
+
+    const calcFormatter = new Intl.NumberFormat('en-US');
+
+    function calcularImpacto() {
+      if (!calcInReportes) return;
+      const reportesMes = parseInt(calcInReportes.value);
+      const pctIgnorados = parseInt(calcInIgnorados.value) / 100;
+      const minManual = parseInt(calcInTiempo.value);
+      const costoReparacion = parseInt(calcInCosto.value);
+
+      calcValReportes.textContent = reportesMes;
+      calcValIgnorados.textContent = calcInIgnorados.value + '%';
+      calcValTiempo.textContent = minManual + ' min';
+      calcValCosto.textContent = 'C$ ' + calcFormatter.format(costoReparacion);
+
+      const reportesIgnorados = Math.round(reportesMes * pctIgnorados);
+      const horasManualMes = Math.round((reportesMes * minManual) / 60);
+      const horasDigitalMes = Math.round(horasManualMes * 0.10);
+      const costoAnual = reportesIgnorados * costoReparacion * 12;
+      const horasAnual = horasManualMes * 12;
+
+      calcOutIgnorados.textContent = calcFormatter.format(reportesIgnorados);
+      calcOutHoras.textContent = calcFormatter.format(horasManualMes);
+      calcBarManualLabel.textContent = calcFormatter.format(horasManualMes);
+      calcBarDigitalLabel.textContent = calcFormatter.format(horasDigitalMes);
+
+      calcBarManual.style.width = '100%';
+      const pctDigital = horasManualMes > 0 ? (horasDigitalMes / horasManualMes) * 100 : 0;
+      calcBarDigital.style.width = Math.max(pctDigital, 2) + '%';
+
+      calcOutCostoAnual.textContent = calcFormatter.format(costoAnual);
+      calcOutHorasAnual.textContent = calcFormatter.format(horasAnual);
+    }
+
+    if (calcInReportes) {
+      [calcInReportes, calcInIgnorados, calcInTiempo, calcInCosto].forEach(el => {
+        el.addEventListener('input', calcularImpacto);
+      });
+      calcularImpacto();
     }
   </script>
 
